@@ -1,6 +1,5 @@
 export const CollegeType = [
-
-    // GOVERNMENT", "DEEMED", "PRIVATE", "AUTONOMOUS"
+  // GOVERNMENT", "DEEMED", "PRIVATE", "AUTONOMOUS"
   {
     label: "GOVERNMENT",
     value: "GOVERNMENT",
@@ -17,13 +16,15 @@ export const CollegeType = [
     label: "AUTONOMOUS",
     value: "AUTONOMOUS",
   },
-  
-  
 ];
 
 export const CollegeCategory = [
   {
-    label: "Andaman and Nicobar Islands",
-    value: "andaman and nicobar islands",
+    label: "Engineering",
+    value: "Engineering",
+  },
+  {
+    label: "Medical",
+    value: "Medical",
   },
 ];
