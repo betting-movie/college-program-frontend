@@ -11,6 +11,7 @@ export const primary = {
   secondaryText: "#5D5BC0",
   inactiveState: "#EDECE8",
   greyText: "#9C9A9D",
+  lightGrey: "#D6D5D5",
 
   mainGreen: "#35BF68",
   secondaryGreen: "#EBF9F0",

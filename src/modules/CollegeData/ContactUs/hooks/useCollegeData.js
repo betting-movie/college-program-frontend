@@ -51,7 +51,10 @@ const useCollegeData = () => {
         state: values.state,
         category: values.category,
         coursesAvailable: [values.coursesAvailable],
-        placement: [parseFloat(values.lowPlacement), parseFloat(values.highPlacement)],
+        placement: [
+          parseFloat(values.lowPlacement),
+          parseFloat(values.highPlacement),
+        ],
         collegeType: values.collegeType,
         numberOfCourses: values.numberOfCourses,
         ranking: values.ranking,
@@ -69,11 +72,13 @@ const useCollegeData = () => {
         scholarshipsOffered: values.scholarshipsOffered,
       };
 
-      addNewCollege(payload).then((res)=>{
-        console.log("Data Entered Successfully",res)
-      }).catch((err)=>{
-        console.log("error",err)
-      })
+      addNewCollege(payload)
+        .then((res) => {
+          console.log("Data Entered Successfully", res);
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
     },
   });
   return {

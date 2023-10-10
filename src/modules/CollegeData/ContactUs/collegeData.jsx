@@ -162,13 +162,22 @@ const CollegeData = () => {
             />
           </Grid>
 
-          {/*  coursesAvailable: "",
-      ranking: "",
-      fees: "",
-      placement: "",
-     
-      avgCutoff: "",
-      admissionMedium: "", */}
+          <Grid item lg={4} md={4} sm={6} xs={12} style={{ width: "100%" }}>
+            {" "}
+            <MemoizedSelectDropDown
+              style={{ height: "60px" }}
+              form={form}
+              id={"state"}
+              name="state"
+              required={true}
+              title={"Select State"}
+              value={form.values.state}
+              optionsData={StatesOptions}
+              onChange={form.handleChange}
+              error={!!checkError("state", form)}
+              helperText={form.errors.state}
+            />{" "}
+          </Grid>
 
           <Grid item lg={4} md={4} sm={6} xs={12} style={{ width: "100%" }}>
             <MemoizedNameField
@@ -426,3 +435,39 @@ const CollegeData = () => {
 };
 
 export const MemoizedCollegeData = React.memo(CollegeData);
+
+/**
+ * Student 
+ * Mentor
+ * 
+ * Student wanted to select a Mentor:
+ * 
+ * In Detail Dasboard we will have a button Subsribe : 
+ * 
+ * Student Data we be linked with mentor Mentor Data (Mutual Linking)
+ * 
+ * Mentor Profile will have student Data
+ * Student Profile will have MentorData
+ * 
+ * /subscribe - Where student Subscribe a mentor 
+ * 
+ * Mapping : {subscribeID, mentorId, studentId, mentorName, studentName, subscriptionStatus .......futher fields can be added later}
+ * 
+ * /getMentors - Query and pull all the subscribeIds with studentId mapped
+ * /getStudent - Query and pull all the subscribeIds with mentorId mapped
+ * 
+ * /unsubscribe - Where subscriptionStatus will be inactive
+ * 
+ * 
+ * Driver10(14)(ii): 185000,
+ * Internet10(14)(ii): 48000,
+ * Professional Persuit10(14)(ii): 240000
+ * Fuel10(14)(ii): 216000,
+ * Health Club10(14)(i): 60000
+ * 
+ * LTA10(5): 158000,
+ * HRA 10(13)(a)	
+: 639000
+ * 
+ * 17(2)(Viii): Food Coupons
+ */

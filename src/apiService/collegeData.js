@@ -5,7 +5,6 @@ export const headers = {
 };
 
 const addNewCollege = (payload) => {
-  
   return axios.post("/api/v1/college/post-college", payload);
 };
 

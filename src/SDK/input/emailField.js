@@ -8,7 +8,7 @@ import {
 import React from "react";
 import { primary } from "../theme";
 
-const CustomPhoneField = styled(TextField)(({ theme }) => ({
+const CustomEmailField = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
     "&.Mui-focused fieldset": {
       borderColor: primary?.mainGreen,
@@ -16,7 +16,7 @@ const CustomPhoneField = styled(TextField)(({ theme }) => ({
   },
 }));
 
-const PhoneField = ({ labelText, onChange, helperText, ...rest }) => {
+const EmailField = ({ labelText, onChange, helperText, ...rest }) => {
   return (
     <Box
       sx={{
@@ -25,13 +25,9 @@ const PhoneField = ({ labelText, onChange, helperText, ...rest }) => {
       }}
     >
       {labelText && <Typography>{labelText}</Typography>}
-      <CustomPhoneField
+      <CustomEmailField
         helperText={helperText}
         variant="outlined"
-        type={"tel"}
-        InputProps={{
-          startAdornment: <InputAdornment position="start">+91</InputAdornment>,
-        }}
         sx={{
           "& .Mui-error": {
             color: "red",
@@ -41,18 +37,10 @@ const PhoneField = ({ labelText, onChange, helperText, ...rest }) => {
           },
         }}
         {...rest}
-        onChange={(e) => {
-          if (
-            !isNaN(Number(e.target.value)) &&
-            e.target.value?.length <= 10 &&
-            onChange
-          ) {
-            onChange(e);
-          }
-        }}
-      />{" "}
+        onChange={onChange}
+      />
     </Box>
   );
 };
 
-export const MemoizedPhoneField = React.memo(PhoneField);
+export const MemoizedEmailField = React.memo(EmailField);
