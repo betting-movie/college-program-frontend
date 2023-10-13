@@ -73,7 +73,7 @@ function Header(props) {
       <AppBar
         component="nav"
         sx={{
-          background: primary?.white,
+          background: primary?.lightYellowBg,
           boxShadow: "none",
         }}
       >

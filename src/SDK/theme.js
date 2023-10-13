@@ -41,7 +41,7 @@ export const primary = {
   darkGrey: "#52525b",
 };
 
-const fontFamilyInfo = `'Poppins', sans-serif`;
+const fontFamilyInfo = `'Inter', sans-serif`;
 
 let themeDef = createTheme({
   typography: {
