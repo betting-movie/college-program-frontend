@@ -12,6 +12,7 @@ import { MemoizedSelectDropDown } from "@/src/SDK/selectDropdown/selectDropdown"
 import { StatesOptions } from "@/src/constants/states";
 import { CityOptions } from "@/src/constants/city";
 import { CollegeCategory, CollegeType } from "@/src/constants/collegeInfo";
+import { MemoizedUploadInput } from "@/src/SDK/input/uploadInput";
 
 const CustomCollegeData = styled(Box)(({ theme }) => ({
   padding: "10px",
@@ -413,6 +414,20 @@ const CollegeData = () => {
               }}
             />
           </Grid>
+
+          <Grid item lg={4} md={4} sm={6} xs={12} style={{ width: "100%" }}>
+        
+          <MemoizedUploadInput
+          className="input-field"
+          name="collegeLogo"
+          error={!!checkError("collegeLogo", form)}
+          helperText={form.errors.collegeLogo}
+          placeholder="Scholarships Offered"
+          value={form.values.collegeLogo}
+          onChange={(e) => {
+            form.handleChange(e);
+          }}
+          /></Grid>
         </Grid>
 
         <MemoizedButton

@@ -32,7 +32,7 @@ const useCollegeData = () => {
       totalFaculty: "",
       scholarshipsOffered: "",
 
-      collegeLogo: "", //formData
+      collegeLogo: null, //formData
       brochure: "",
     },
 
@@ -43,7 +43,7 @@ const useCollegeData = () => {
     },
 
     onSubmit: (values) => {
-      console.log("values", values);
+      console.log("values", values?.collegeLogo);
 
       const payload = {
         college_name: values.collegeName,
@@ -70,6 +70,7 @@ const useCollegeData = () => {
         flagshipCourse: values.flagshipCourse,
         totalFaculty: values.totalFaculty,
         scholarshipsOffered: values.scholarshipsOffered,
+        collegeLogo:values?.collegeLogo
       };
 
       addNewCollege(payload)
