@@ -26,6 +26,8 @@ export const primary = {
   darkGreen: " #2D804C",
   lightPink: "#FFEDF1",
 
+  darkPurple: "#1D2939",
+
   flagSaffron: "#ff9a2f",
   flagGreen: "#0a8901",
   electricGreen: "#00EE98",

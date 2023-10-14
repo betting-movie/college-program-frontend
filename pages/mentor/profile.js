@@ -5,6 +5,8 @@ import { Box } from "@mui/material";
 import { MemoizedCollegeData } from "@/src/modules/CollegeData/ContactUs";
 import { MemoizedLogin } from "@/src/modules/Student/Login";
 import { MemoizedHeader } from "@/src/modules/Layout";
+import { MemoizedMentorHeader } from "@/src/modules/Layout/Header/MentorHeader";
+import { MemoizedMentorDashboard } from "@/src/modules/Mentor/Dashboard";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +20,8 @@ export default function MentorProfile() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/logo.svg" />
       </Head>
-      {/* <MemoizedHeader/> */}
-      Mentor Profile
+
+      <MemoizedMentorDashboard />
     </>
   );
 }
