@@ -416,18 +416,20 @@ const CollegeData = () => {
           </Grid>
 
           <Grid item lg={4} md={4} sm={6} xs={12} style={{ width: "100%" }}>
-        
-          <MemoizedUploadInput
-          className="input-field"
-          name="collegeLogo"
-          error={!!checkError("collegeLogo", form)}
-          helperText={form.errors.collegeLogo}
-          placeholder="Scholarships Offered"
-          value={form.values.collegeLogo}
-          onChange={(e) => {
-            form.handleChange(e);
-          }}
-          /></Grid>
+            <MemoizedUploadInput
+              form={form}
+              id="collegeLogo"
+              className="input-field"
+              name="collegeLogo"
+              error={!!checkError("collegeLogo", form)}
+              helperText={form.errors.collegeLogo}
+              placeholder="Scholarships Offered"
+              value={form.values.collegeLogo}
+              onChange={(e) => {
+                form.handleChange(e);
+              }}
+            />
+          </Grid>
         </Grid>
 
         <MemoizedButton

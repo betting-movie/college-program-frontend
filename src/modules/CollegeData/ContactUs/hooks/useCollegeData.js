@@ -32,8 +32,9 @@ const useCollegeData = () => {
       totalFaculty: "",
       scholarshipsOffered: "",
 
-      collegeLogo: null, //formData
+      collegeLogo: "", //formData
       brochure: "",
+      picUrl: "",
     },
 
     validate: (values) => {
@@ -43,7 +44,7 @@ const useCollegeData = () => {
     },
 
     onSubmit: (values) => {
-      console.log("values", values?.collegeLogo);
+      console.log("values", values?.picUrl);
 
       const payload = {
         college_name: values.collegeName,
@@ -70,12 +71,14 @@ const useCollegeData = () => {
         flagshipCourse: values.flagshipCourse,
         totalFaculty: values.totalFaculty,
         scholarshipsOffered: values.scholarshipsOffered,
-        collegeLogo:values?.collegeLogo
+        collegeLogo: values?.picUrl,
       };
 
       addNewCollege(payload)
         .then((res) => {
           console.log("Data Entered Successfully", res);
+          alert(`${values.collegeName} data uploaded successfully.`);
+          form.resetForm()
         })
         .catch((err) => {
           console.log("error", err);

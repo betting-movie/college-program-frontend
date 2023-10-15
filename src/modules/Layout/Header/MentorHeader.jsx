@@ -283,7 +283,7 @@ const MentorHeader = ({ children, ...props }) => {
     window !== undefined ? () => window().document.body : undefined;
   return (
     <Box
-      sx={{ display: "flex", margin: { md: "36px", xs: "14px", sm: "30px" } }}
+      sx={{ display: "flex", margin: { md: "36px", xs: "30px", sm: "30px" } }}
     >
       <AppBar
         component="nav"

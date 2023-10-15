@@ -9,9 +9,8 @@ import { primary } from "@/src/SDK/theme";
 const CustomMentorCard = styled(Box)(({ theme }) => ({
   display: "block",
   padding: "20px",
-  maxHeight:"400px",
-  width:"100% !important",
-  
+  maxHeight: "400px",
+  width: "100% !important",
 
   ".heading": {
     fontSize: "2em",
