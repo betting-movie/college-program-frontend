@@ -15,9 +15,7 @@ const CustomInfoCard = styled(Box)(({ theme }) => ({
       width: "100%",
       // maxWidth: "450px",
     },
-   
   },
-  
 }));
 
 const InfoCard = ({ children, ...props }) => {
