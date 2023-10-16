@@ -41,6 +41,8 @@ export const primary = {
   darkYellow: "#FDCE10",
 
   darkGrey: "#52525b",
+
+  lightBlue: "#F5FAFF",
 };
 
 const fontFamilyInfo = `'Inter', sans-serif`;

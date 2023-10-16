@@ -78,7 +78,7 @@ const useCollegeData = () => {
         .then((res) => {
           console.log("Data Entered Successfully", res);
           alert(`${values.collegeName} data uploaded successfully.`);
-          form.resetForm()
+          form.resetForm();
         })
         .catch((err) => {
           console.log("error", err);
