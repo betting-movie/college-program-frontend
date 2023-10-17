@@ -6,6 +6,10 @@ import { MemoizedFooter, MemoizedHeader } from "@/src/modules/Layout";
 import CollegeCards, {
   MemoizedCollegeCard,
 } from "@/src/modules/GenericComponents/College/collegeCard";
+import { MemoizedCollegeCategory } from "@/src/modules/GenericComponents/College/collegeCategory";
+import { MemoizedcityCard } from "@/src/modules/GenericComponents/College/cityCards";
+import { MemoizedcourseCard } from "@/src/modules/GenericComponents/College/courseCards";
+import { MemoizedExamCard } from "@/src/modules/GenericComponents/College/examCard";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -69,6 +73,45 @@ const sampleData = {
   averagePackageRange: "20L to 1.5Cr", //Not in api
 };
 
+const CategoryData = [
+  {
+    id:1,
+    category: "Engineering",
+    noOfColleges: "100+",
+    degrees: ["BE/B.Tech", "Diploma in Engineering", "ME/M.Tech"],
+    iconUrl: "/Images/iitmadras.webp",
+  },
+];
+
+const cityData = [
+  {
+    iconUrl: "/Images/iitmadras.webp",
+    name: "Bangalore",
+  },
+];
+
+const courseData = [
+  {
+    name: "B.Tech/B.E",
+    duration: "4 Years",
+    avgFees: "62.81 K",
+    colleges: "269",
+    courseType: "Full Time",
+  },
+];
+
+const examCard =[
+  {
+    type:"Offline Exam",
+    name:"NEET",
+    collegesParticipate:"600",
+    examDate:"May 05, 2024",
+    examLevel:"Exam Level",
+    examUrl:"/Images/iitmadras.webp",
+
+  }
+]
+
 export default function Home() {
   return (
     <>
@@ -82,6 +125,10 @@ export default function Home() {
         {/* <MemoizedHeader /> */}
         <Box>
           <MemoizedCollegeCard info={sampleData} />
+          <MemoizedCollegeCategory info={CategoryData[0]} />
+          <MemoizedcityCard info={cityData[0]} />
+          <MemoizedcourseCard info={courseData[0]} />
+          <MemoizedExamCard info={examCard[0]}/>
         </Box>
         {/* <MemoizedFooter/> */}
       </Box>

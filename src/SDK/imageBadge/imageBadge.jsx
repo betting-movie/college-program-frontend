@@ -7,7 +7,7 @@ import React from "react";
 import { primary } from "../theme";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-const StyledBadge = withStyles((theme) => ({
+const StyledBadge = withStyles(() => ({
   badge: {
     backgroundImage: `url("/Images/google.webp")`,
     backgroundRepeat: "no-repeat",

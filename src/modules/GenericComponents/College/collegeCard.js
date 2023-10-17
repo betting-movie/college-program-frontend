@@ -32,12 +32,11 @@ const CustomCollegeCard = styled(Box)(({ theme }) => ({
   },
 }));
 
-const CollegeCard = ({ info, id }) => {
-  console.log(info, id);
-
+const CollegeCard = ({ info }) => {
+ 
   return (
     <MemoizedInfoCard>
-      <CustomCollegeCard id={id}>
+      <CustomCollegeCard >
         <Box
           sx={{
             display: "flex",
@@ -212,70 +211,6 @@ const CollegeCard = ({ info, id }) => {
             </Typography>
           </Box>
         </Box>
-
-        {/* <Box sx={{ display: "flex" }}>
-          {info?.skills?.slice(1, 3)?.map((res, index) => {
-            return (
-              <Typography
-                id={index}
-                style={{
-                  fontSize: "12px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-
-                  borderBottom: `1px dotted ${primary?.greyText}`,
-                  margin: "4px",
-                }}
-              >
-                {res}
-              </Typography>
-            );
-          })}
-         
-        </Box> */}
-
-        {/* <Box sx={{ display: "flex", paddingTop: "10px" }}>
-          <Typography
-            style={{
-              fontSize: "12px",
-              fontStyle: "normal",
-              fontWeight: 500,
-              lineHeight: "24px",
-              margin: "4px",
-            }}
-          >
-            <span style={{ fontSize: "15px", fontWeight: "600" }}>
-              ₹{info?.consultation_cost}
-            </span>
-            /consultation
-          </Typography>
-          <Typography
-            style={{
-              color: "#111827",
-
-              fontSize: 14,
-              fontStyle: "normal",
-              fontWeight: 400,
-              lineHeight: "20px",
-              margin: "4px",
-              fontWeight: "600",
-            }}
-          >
-            {info?.rating}⭐
-          </Typography>
-          <Typography
-            style={{
-              fontSize: "12px",
-              fontStyle: "normal",
-              fontWeight: 400,
-              lineHeight: "20px",
-              margin: "4px",
-            }}
-          >
-            <span style={{ fontWeight: "600" }}>{info?.mentees}</span>+ mentees
-          </Typography>
-        </Box> */}
-
         <Box
           sx={{
             display: "flex",
@@ -310,11 +245,6 @@ const CollegeCard = ({ info, id }) => {
           />
         </Box>
 
-        {/* Mentor Personal Detail */}
-
-        {/* Mentor Desc and skills */}
-
-        {/* Selection */}
       </CustomCollegeCard>
     </MemoizedInfoCard>
   );

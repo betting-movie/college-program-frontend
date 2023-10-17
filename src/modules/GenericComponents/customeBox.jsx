@@ -13,7 +13,7 @@ const CustomeBoxStyle = styled(Box)(({ theme }) => ({
   ".value-style": {
     fontSize: "1em",
     fontStyle: "italic",
-    color: primary?.secondaryText, 
+    color: primary?.secondaryText,
   },
   [theme.breakpoints.down("md")]: {
     ".container": {
