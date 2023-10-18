@@ -41,13 +41,10 @@ const CustomExamCard = styled(Box)(({ theme }) => ({
   },
 }));
 
-
-const ExamCard = ({ info}) => {
- 
+const ExamCard = ({ info }) => {
   return (
     <CustomExamCard id={info?.id}>
-
-<Box
+      <Box
         sx={{
           display: "flex",
           padding: "10px",
@@ -70,9 +67,9 @@ const ExamCard = ({ info}) => {
               fontStyle: "normal",
               fontWeight: 600,
               lineHeight: "24px",
-              background:primary?.lightBlue,
-              padding:"4px",
-              borderRadius:"4px"
+              background: primary?.lightBlue,
+              padding: "4px",
+              borderRadius: "4px",
             }}
           >
             {info?.type}
@@ -90,11 +87,7 @@ const ExamCard = ({ info}) => {
             {info?.name}
           </Typography>
         </Box>
-
-       
       </Box>
-
-
 
       <Box
         sx={{
@@ -164,7 +157,7 @@ const ExamCard = ({ info}) => {
             width: "50%",
           }}
         >
-        {info?.examDate}
+          {info?.examDate}
         </Typography>
       </Box>
 
@@ -252,7 +245,6 @@ const ExamCard = ({ info}) => {
           width: "100%",
           marginTop: "10px",
           color: primary?.secondary,
-          
         }}
       >
         <Typography

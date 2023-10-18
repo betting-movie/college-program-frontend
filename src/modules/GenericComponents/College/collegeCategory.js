@@ -39,12 +39,10 @@ const CustomCollegeCategory = styled(Box)(({ theme }) => ({
   },
 }));
 
-const CollegeCategory = ({ info}) => {
-  
+const CollegeCategory = ({ info }) => {
   return (
-    <CustomCollegeCategory >
+    <CustomCollegeCategory>
       <Box
-     
         sx={{
           display: "flex",
           padding: "20px",
@@ -124,7 +122,6 @@ const CollegeCategory = ({ info}) => {
             border: "none",
           }}
           handleClick={(e) => {
-           
             form.handleSubmit(e);
           }}
         />

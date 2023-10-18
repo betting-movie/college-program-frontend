@@ -15,6 +15,7 @@ const NameField = ({ onChange, helperText, ...rest }) => {
 
   return (
     <CustomNameField
+      variant="outlined"
       sx={{
         "& .Mui-error": {
           color: "red",

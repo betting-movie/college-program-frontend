@@ -9,12 +9,9 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const CustomBestCollegeCard = styled(Box)(({ theme }) => ({
   display: "block",
 
-  maxWidth: "152px",
+  maxWidth: "250px",
   borderRadius: "8px",
-  //width: "100%",
-  //maxWidth: "460px",
-  // maxHeight: "700px",
-  // paddingBottom: "1em",
+
   border: `1px solid ${primary?.lightGrey}`,
 
   ".heading": {
@@ -39,37 +36,57 @@ const CustomBestCollegeCard = styled(Box)(({ theme }) => ({
 }));
 
 const BestCollegeCard = ({ info }) => {
- 
+  // topic:"Best MBA colleges in India",
+  // numberOfColleges:"300+",
+  // iconUrl:"/Images/iitmadras.webp",
+
   return (
-    <CustomBestCollegeCard >
+    <CustomBestCollegeCard>
       <Box
         sx={{
           display: "flex",
           padding: "20px",
           justifyContent: "center",
+          background: info?.bgColor,
         }}
       >
         <Box>
-          <LazyLoadImage
-            src={info?.iconUrl}
-            style={{
-              width: "80px",
-              height: "80px",
+          <Box style={{ display: "flex", justifyContent: "center" }}>
+            <LazyLoadImage
+              src={info?.iconUrl}
+              style={{
+                width: "80px",
+                height: "80px",
+                justifyContent: "center",
+                margin: "auto",
 
-              border: `1px solid ${primary?.lightGrey}`,
+                //border: `1px solid ${primary?.lightGrey}`,
+              }}
+            />
+          </Box>
+
+          <Typography
+            style={{
+              fontSize: "16px",
+              fontStyle: "normal",
+              fontWeight: 600,
+
+              textAlign: "center",
             }}
-          />
+          >
+            {info?.topic}
+          </Typography>
 
           <Typography
             style={{
               fontSize: "12px",
               fontStyle: "normal",
-              fontWeight: 500,
-
+              fontWeight: 600,
+              color: primary?.secondary,
               textAlign: "center",
             }}
           >
-            {info?.name}
+            {info?.numberOfColleges}+ more
           </Typography>
         </Box>
       </Box>

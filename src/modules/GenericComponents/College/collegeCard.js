@@ -33,10 +33,9 @@ const CustomCollegeCard = styled(Box)(({ theme }) => ({
 }));
 
 const CollegeCard = ({ info }) => {
- 
   return (
     <MemoizedInfoCard>
-      <CustomCollegeCard >
+      <CustomCollegeCard>
         <Box
           sx={{
             display: "flex",
@@ -244,7 +243,6 @@ const CollegeCard = ({ info }) => {
             }}
           />
         </Box>
-
       </CustomCollegeCard>
     </MemoizedInfoCard>
   );

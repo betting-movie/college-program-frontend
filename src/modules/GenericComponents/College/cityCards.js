@@ -39,9 +39,8 @@ const CustomcityCard = styled(Box)(({ theme }) => ({
 }));
 
 const cityCard = ({ info }) => {
-  
   return (
-    <CustomcityCard >
+    <CustomcityCard>
       <Box
         sx={{
           display: "flex",

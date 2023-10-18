@@ -41,9 +41,7 @@ const CustomcourseCard = styled(Box)(({ theme }) => ({
   },
 }));
 
-
 const courseCard = ({ info }) => {
-  
   return (
     <CustomcourseCard>
       <Typography
