@@ -12,6 +12,7 @@ import { useMobile } from "@/src/utils/findViewPort";
 import { MemoizedCollegeCategory } from "../College/collegeCategory";
 import { resolve } from "styled-jsx/css";
 import { MemoizedcityCard } from "../College/cityCards";
+import { useDevice } from "@/src/utils/findDeviceView";
 
 const CustomCityDataSwiper = styled(Box)(({ theme, ignorePadding }) => ({
   ".image-section": {
@@ -39,12 +40,13 @@ const CityDataSwiper = ({
   slideReq,
 }) => {
   const isMobile = useMobile();
+  const device = useDevice();
 
   return (
     <CustomCityDataSwiper ignorePadding={ignorePadding}>
       <Box>
         <Swiper
-          slidesPerView={isMobile ? slideReq ?? 2.1 : 6.2}
+          slidesPerView={device === 2 ? 2.1 : device === 3 ? 4.6 : 6.2}
           spaceBetween={isMobile ? 10 : 20}
           pagination={false}
           loop={true}

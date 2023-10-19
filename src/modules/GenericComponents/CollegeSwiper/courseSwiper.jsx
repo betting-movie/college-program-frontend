@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import { useMobile } from "@/src/utils/findViewPort";
 import { MemoizedcourseCard } from "../College/courseCards";
+import { useDevice } from "@/src/utils/findDeviceView";
 
 const CustomCourseDataSwiper = styled(Box)(({ theme, ignorePadding }) => ({
   ".image-section": {
@@ -36,12 +37,13 @@ const CourseDataSwiper = ({
   slideReq,
 }) => {
   const isMobile = useMobile();
+  const device = useDevice();
 
   return (
     <CustomCourseDataSwiper ignorePadding={ignorePadding}>
       <Box>
         <Swiper
-          slidesPerView={isMobile ? slideReq ?? 1.2 : 3.8}
+          slidesPerView={device === 2 ? 1.2 : device === 3 ? 2.8 : 3.8}
           spaceBetween={isMobile ? 10 : 20}
           pagination={false}
           loop={true}
