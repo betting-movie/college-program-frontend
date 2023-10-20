@@ -2,23 +2,18 @@ import { primary } from "@/src/SDK/theme";
 import { Box, Divider, Typography, styled } from "@mui/material";
 import React from "react";
 import { MemoizedCustomeBox } from "../../GenericComponents/customeBox";
+import { MemoizedDashboardCardHeader } from "../../GenericComponents/dashboardCardHeader";
 
 const CustomeAchivements = styled(Box)(({ theme }) => ({
   marginTop: "20px",
   ".education-container": {
     padding: "20px",
     borderRadius: "10px",
-    border: `2px solid ${primary?.greyText}`,
-  },
-  ".title": {
-    fontSize: "2em",
-    fontWeight: 600,
+    backgroundColor: primary?.extraLightBlue,
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
   },
 
   [theme.breakpoints.down("md")]: {
-    ".title": {
-      fontSize: "1.6em",
-    },
     ".education-container": {
       padding: "10px",
     },
@@ -28,14 +23,17 @@ const Education = ({ data }) => {
   return (
     <CustomeAchivements>
       <Box className="education-container">
-        <Box sx={{ marginBottom: "20px" }}>
-          <Typography className="title">Education</Typography>
-          <Divider />
-        </Box>
+        <MemoizedDashboardCardHeader
+          title={"Education"}
+          route={"/mentor/edit"}
+        />
         {data[0]?.education?.map((item) => (
           <MemoizedCustomeBox value={item} />
         ))}
       </Box>
+      <Divider
+        sx={{ marginTop: "2em", borderTop: `2px solid ${primary?.lightGrey}` }}
+      />
     </CustomeAchivements>
   );
 };

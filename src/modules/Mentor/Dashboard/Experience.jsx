@@ -2,18 +2,17 @@ import { primary } from "@/src/SDK/theme";
 import { Box, Divider, Typography, styled } from "@mui/material";
 import React from "react";
 import { MemoizedCustomeBox } from "../../GenericComponents/customeBox";
+import { MemoizedDashboardCardHeader } from "../../GenericComponents/dashboardCardHeader";
 
 const CustomExpirence = styled(Box)(({ theme }) => ({
   marginTop: "20px",
   ".expirence-container": {
     padding: "20px",
     borderRadius: "10px",
-    border: `2px solid ${primary?.greyText}`,
+    backgroundColor: primary?.extraLightBlue,
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
   },
-  ".title": {
-    fontSize: "2em",
-    fontWeight: 600,
-  },
+
   ".comapny-heading": {
     fontSize: "1.2em",
     fontWeight: 600,
@@ -22,9 +21,6 @@ const CustomExpirence = styled(Box)(({ theme }) => ({
     marginBottom: "10px",
   },
   [theme.breakpoints.down("md")]: {
-    ".title": {
-      fontSize: "1.6em",
-    },
     ".expirence-container": {
       padding: "10px",
     },
@@ -35,10 +31,10 @@ const Experience = ({ data }) => {
   return (
     <CustomExpirence>
       <Box className="expirence-container">
-        <Box sx={{ marginBottom: "20px" }}>
-          <Typography className="title">Expirence</Typography>
-          <Divider />
-        </Box>
+        <MemoizedDashboardCardHeader
+          title={"Experience"}
+          route={"/mentor/edit"}
+        />
         <Typography className="comapny-heading">Current Company</Typography>
         <MemoizedCustomeBox value={data[0]?.current_company} />
         <Typography className="comapny-heading">Past Experinece</Typography>
@@ -46,6 +42,9 @@ const Experience = ({ data }) => {
           <MemoizedCustomeBox value={item} />
         ))}
       </Box>
+      <Divider
+        sx={{ marginTop: "2em", borderTop: `2px solid ${primary?.lightGrey}` }}
+      />
     </CustomExpirence>
   );
 };

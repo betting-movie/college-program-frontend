@@ -44,6 +44,8 @@ export const primary = {
 
   lightBlue: "#F5FAFF",
   headerColor: "#8AAAE5",
+
+  extraLightBlue: "#F0F6F9",
 };
 
 const fontFamilyInfo = `'Inter', sans-serif`;

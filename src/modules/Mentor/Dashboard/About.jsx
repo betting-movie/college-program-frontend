@@ -2,16 +2,16 @@ import { primary } from "@/src/SDK/theme";
 import { Avatar, Box, Divider, Typography, styled } from "@mui/material";
 import React from "react";
 
+import { MemoizedDashboardCardHeader } from "../../GenericComponents/dashboardCardHeader";
+
 const CustomAbout = styled(Box)(({ theme }) => ({
   ".about-container": {
     padding: "20px",
     borderRadius: "10px",
-    border: `2px solid ${primary?.greyText}`,
+    backgroundColor: primary?.extraLightBlue,
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
   },
-  ".title": {
-    fontSize: "2em",
-    fontWeight: 600,
-  },
+
   ".profile-container": {
     display: "flex",
     alignItems: "center",
@@ -19,6 +19,7 @@ const CustomAbout = styled(Box)(({ theme }) => ({
     marginBottom: "10px",
     marginTop: "10px",
   },
+
   ".avatar": {
     width: 200,
     height: 200,
@@ -26,7 +27,6 @@ const CustomAbout = styled(Box)(({ theme }) => ({
   ".name": {
     fontSize: "1.8em",
     fontWeight: 600,
-    fontStyle: "italic",
     margin: "auto",
   },
   ".description-label": {
@@ -35,7 +35,6 @@ const CustomAbout = styled(Box)(({ theme }) => ({
   },
   ".description-value": {
     fontSize: "0.8em",
-    fontStyle: "italic",
   },
   ".other-detail-container": {
     marginTop: "4px",
@@ -44,9 +43,6 @@ const CustomAbout = styled(Box)(({ theme }) => ({
     border: `2px solid ${primary?.inactiveState}`,
   },
   [theme.breakpoints.down("md")]: {
-    ".title": {
-      fontSize: "1.6em",
-    },
     ".about-container": {
       padding: "10px",
     },
@@ -65,7 +61,6 @@ const CustomAbout = styled(Box)(({ theme }) => ({
     },
     ".description-value": {
       fontSize: "0.8em",
-      fontStyle: "italic",
     },
   },
 }));
@@ -74,11 +69,7 @@ const About = ({ data }) => {
   return (
     <CustomAbout>
       <Box className="about-container">
-        <Box sx={{ marginBottom: "20px" }}>
-          <Typography className="title">About</Typography>
-          <Divider />
-        </Box>
-
+        <MemoizedDashboardCardHeader title={"About"} route={"/mentor/edit"} />
         <Box className="profile-container">
           <Avatar
             alt={data[0]?.name}
@@ -120,6 +111,9 @@ const About = ({ data }) => {
           </Typography>
         </Box>
       </Box>
+      <Divider
+        sx={{ marginTop: "2em", borderTop: `2px solid ${primary?.lightGrey}` }}
+      />
     </CustomAbout>
   );
 };

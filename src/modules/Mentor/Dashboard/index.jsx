@@ -6,6 +6,7 @@ import { MemoizedMentorExperience } from "./Experience";
 import { MemoizedMentorAchivements } from "./Achivements";
 import { MemoizedMentorEducation } from "./Education";
 import { MemoizedMentorOhters } from "./Other";
+import { Divider } from "@mui/material";
 
 const sampleData = [
   {

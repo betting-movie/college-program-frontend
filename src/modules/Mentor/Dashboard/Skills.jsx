@@ -1,18 +1,17 @@
 import { primary } from "@/src/SDK/theme";
 import { Box, Divider, Grid, Typography, styled } from "@mui/material";
 import React from "react";
+import { MemoizedDashboardCardHeader } from "../../GenericComponents/dashboardCardHeader";
 
 const CustomSkills = styled(Box)(({ theme }) => ({
   marginTop: "20px",
   ".expirence-container": {
     padding: "20px",
     borderRadius: "10px",
-    border: `2px solid ${primary?.greyText}`,
+    backgroundColor: primary?.extraLightBlue,
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
   },
-  ".title": {
-    fontSize: "2em",
-    fontWeight: 600,
-  },
+
   ".skill-text-style": {
     backgroundColor: primary?.secondaryText,
     color: primary?.white,
@@ -26,9 +25,7 @@ const CustomSkills = styled(Box)(({ theme }) => ({
     ".expirence-container": {
       padding: "10px",
     },
-    ".title": {
-      fontSize: "1.6em",
-    },
+
     ".skill-text-style": {
       padding: "6px 8px",
       borderRadius: "10px",
@@ -41,10 +38,7 @@ const Skills = ({ data }) => {
   return (
     <CustomSkills>
       <Box className="expirence-container">
-        <Box sx={{ marginBottom: "20px" }}>
-          <Typography className="title">Skills</Typography>
-          <Divider />
-        </Box>
+        <MemoizedDashboardCardHeader title={"Skills"} route={"/mentor/edit"} />
         <Grid container spacing={2}>
           {data[0]?.skills?.map((item) => (
             <Grid item xs={12} sm={6} md={4} lg={4} key={item}>
@@ -53,6 +47,9 @@ const Skills = ({ data }) => {
           ))}
         </Grid>
       </Box>
+      <Divider
+        sx={{ marginTop: "2em", borderTop: `2px solid ${primary?.lightGrey}` }}
+      />
     </CustomSkills>
   );
 };
