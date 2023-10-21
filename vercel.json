@@ -1,8 +1,13 @@
 {
     "rewrites": [
       {
-        "source": "/blog/(.*)",
+        "source": "/blog",
         "destination": "https://rank-high-blog.vercel.app/"
-      }
+      },
+
+        {
+          "source": "/blog/:match*",
+          "destination": "https://rank-high-blog.vercel.app/:match*"
+        }
     ]
   }
