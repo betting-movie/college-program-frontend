@@ -1,0 +1,9 @@
+{
+    "routes": [
+      {
+        "src": "/blog",
+        "dest": "https://rank-high-blog.vercel.app/"
+      }
+    ]
+  }
+  
