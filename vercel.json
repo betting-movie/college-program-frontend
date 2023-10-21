@@ -1,17 +1,10 @@
 {
     "routes": [
-      {
-        "src": "/blog",
-        "dest": "https://rank-high-blog.vercel.app/"
-      },
-      {
-        "src": "/blog/(.*?)([.]\\w{2,5})(\\?[^/]+)?",
-        "dest": "https://rank-high-blog.vercel.app/$1$2$3"
-      },
-      {
-        "src": "/blog/([\\S\\s]+)",
-        "dest": "https://rank-high-blog.vercel.app/$1/"
-      }
+        {
+            "source": "/blog/(.*)",
+            "destination": "https://rank-high-blog.vercel.app/"
+          }
+    
     ]
   }
   
