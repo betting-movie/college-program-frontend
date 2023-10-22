@@ -6,8 +6,8 @@
       },
 
         {
-          "source": "/blog/:match*",
-          "destination": "https://rank-high-blog.vercel.app/collegestojob/:match*"
+          "source": "/blog/:slug",
+          "destination": "https://rank-high-blog.vercel.app/collegestojob/:slug"
         }
     ]
   }
