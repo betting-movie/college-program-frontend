@@ -2,12 +2,12 @@
     "rewrites": [
       {
         "source": "/blog",
-        "destination": "https://rank-high-blog.vercel.app/"
+        "destination": "https://rank-high-blog.vercel.app/collegestojob/"
       },
 
         {
           "source": "/blog/:match*",
-          "destination": "https://rank-high-blog.vercel.app/:match*"
+          "destination": "https://rank-high-blog.vercel.app/collegestojob/:match*"
         }
     ]
   }
