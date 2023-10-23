@@ -1,13 +1,8 @@
 {
   "routes": [
-      {
-        "source": "/blog",
-        "destination": "https://rank-high-blog.vercel.app/collegestojob"
-      },
-
-        {
-          "source": "/blog/blog1",
-          "destination": "https://rank-high-blog.vercel.app/collegestojob/blog1"
-        }
-    ]
-  }
+    {
+      "source": "/blog/:path",
+      "destination": "https://rank-high-blog.vercel.app/collegestojob/:path"
+    }
+  ]
+}
