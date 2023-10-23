@@ -2,12 +2,12 @@
   "routes": [
       {
         "src": "/blog",
-        "dest": "https://rank-high-blog.vercel.app/collegestojob"
+        "dest": "https://rank-high-blog.vercel.app/my-app/collegestojob"
       },
 
         {
           "src": "/blog/blog1",
-          "dest": "https://rank-high-blog.vercel.app/collegestojob/blog1"
+          "dest": "https://rank-high-blog.vercel.app/my-app/collegestojob/blog1"
         }
     ]
   }
