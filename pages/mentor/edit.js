@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import { MemoizedMentorDashboard } from "@/src/modules/Mentor/Dashboard";
 import { Typography } from "@mui/material";
+import { MemoizedEditMentor } from "@/src/modules/Mentor/Edit";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,7 @@ export default function MentorEdit() {
         <link rel="icon" href="/images/logo.svg" />
       </Head>
 
-      <Typography>Edit Mentor</Typography>
+      <MemoizedEditMentor />
     </>
   );
 }
