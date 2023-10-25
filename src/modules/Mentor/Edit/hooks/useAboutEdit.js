@@ -40,20 +40,6 @@ const useAboutEdit = () => {
 
   const [previewURL, setPreviewURL] = useState(sampleData[0]?.profile_pic);
 
-  const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-
-    if (selectedFile) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setPreviewURL(e.target.result);
-      };
-      reader.readAsDataURL(selectedFile);
-    } else {
-      setPreviewURL("");
-    }
-  };
-
   const form = useFormik({
     validateOnChange: true,
     initialValues: {
@@ -66,7 +52,6 @@ const useAboutEdit = () => {
     },
 
     validate: (values) => {
-      console.log("About-->", values, previewURL);
       const errors = { ...values?.errors };
       if (!values?.email?.toString()) {
         errors.email = "Please Enter email id";
@@ -89,7 +74,7 @@ const useAboutEdit = () => {
     loading,
     formSubmit,
     previewURL,
-    handleFileChange,
+    setPreviewURL,
   };
 };
 

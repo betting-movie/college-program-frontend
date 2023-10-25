@@ -20,12 +20,12 @@ const CustomEditAbout = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("md")]: {
     ".about-container": {
       padding: "10px",
-    }, 
+    },
   },
 }));
 
 const About = () => {
-  const { form, loading, formSubmit, previewURL, handleFileChange } =
+  const { form, loading, formSubmit, previewURL, setPreviewURL } =
     useAboutEdit();
 
   return (
@@ -35,8 +35,12 @@ const About = () => {
 
         <form onSubmit={form.onSubmit}>
           <MemoizedProfilePicture
-            handleFileChange={handleFileChange}
             previewURL={previewURL}
+            setPreviewURL={setPreviewURL}
+            form={form}
+            onChange={(e) => {
+              form.handleChange(e);
+            }}
           />
           <Box>
             <Box
