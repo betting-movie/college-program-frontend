@@ -23,6 +23,7 @@ import { getColleges } from "@/src/apiService/collegeData";
 
 import VaccinesTwoToneIcon from "@mui/icons-material/VaccinesTwoTone";
 import EngineeringTwoToneIcon from "@mui/icons-material/EngineeringTwoTone";
+import TypeWriter from "@/src/SDK/typeWriter";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -397,13 +398,13 @@ const bestColleges = [
     topic: "Best Engineering colleges in India",
     numberOfColleges: "300",
     iconUrl: "/Images/engineeringIcon.webp",
-    bgColor: "linear-gradient(62deg, #2196F3 0%, #9C27B0 100%)",
+    bgColor: "linear-gradient(62deg, #DEDEF5 -10%, #F4F8FB 100%)",
   },
   {
     topic: "Best Medical colleges in India",
     numberOfColleges: "300",
     iconUrl: "/Images/medicalIcon.webp",
-    bgColor: "linear-gradient(62deg, #F4F8FB 0%, #F4F8FB 100%)",
+    bgColor: "linear-gradient(62deg, #F4F8FB 0%, #DEDEF5 100%)",
   },
   // {
   //   topic: "Best MBA colleges in India",
@@ -500,39 +501,46 @@ export default function Home() {
       <Box>
         <MemoizedHeader />
         <Box sx={{ marginBottom: "20px" }}>
+          {/* #1F74D8, #1F74D800 */}
           <Box
             sx={{
-              height: "300px",
+              height: { xs: "200px", sm: "200px", md: "300px", lg: "300px" },
+              // background:"#D2C1DA",
               background:
-                "linear-gradient( 180.7deg,  rgba(0,213,255,1) 2.5%, rgba(79,255,255,1) 97.7% )",
+                "linear-gradient( 180deg,  #1F74D8 20%, #1F74D800 97.7% )",
               display: "flex",
               justifyContent: "center",
             }}
           >
-            <Box sx={{ margin: "auto" }}>
-              <MemoizedNameField
-                className="input-field"
-                sx={{
-                  background: primary?.white,
-                  borderRadius: "8px",
-                  width: "50vw",
-                }}
-                name="collegeName"
-                // error={!!checkError("collegeName", form)}
-                // helperText={form.errors.collegeName}
-                placeholder="Search College Name"
-                // value={form.values.collegeName}
-                // onChange={(e) => {
-                //   form.handleChange(e);
-                // }}
-              />
+            <Box style={{ display: "block", marginTop: "10%" }}>
+              <Box style={{ marginBottom: "20px" }}>
+                <TypeWriter infoText={"Find Your College, Land Dream Job !!"} />
+              </Box>
+              <Box style={{ display: "flex", justifyContent: "center" }}>
+                <MemoizedNameField
+                  className="input-field"
+                  sx={{
+                    background: primary?.white,
+                    borderRadius: "8px",
+                    width: "50vw",
+                  }}
+                  name="collegeName"
+                  // error={!!checkError("collegeName", form)}
+                  // helperText={form.errors.collegeName}
+                  placeholder="Search College Name"
+                  // value={form.values.collegeName}
+                  // onChange={(e) => {
+                  //   form.handleChange(e);
+                  // }}
+                />{" "}
+              </Box>
             </Box>
           </Box>
 
           <Box
             sx={{
-              marginLeft: { lg: "10%", md: "10%", sm: "5%", xs: "5%" },
-              marginRight: { lg: "10%", md: "10%", sm: "5%", xs: "5%" },
+              paddingLeft: { lg: "10%", md: "10%", sm: "5%", xs: "5%" },
+              paddingRight: { lg: "10%", md: "10%", sm: "5%", xs: "5%" },
             }}
           >
             <Box>
