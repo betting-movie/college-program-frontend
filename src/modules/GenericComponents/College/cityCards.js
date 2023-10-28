@@ -44,7 +44,7 @@ const cityCard = ({ info }) => {
       <Box
         sx={{
           display: "flex",
-          padding: "20px",
+          padding: "10px",
           justifyContent: "center",
         }}
       >
@@ -52,10 +52,10 @@ const cityCard = ({ info }) => {
           <LazyLoadImage
             src={info?.iconUrl}
             style={{
-              width: "80px",
-              height: "80px",
+              width: "90px",
+              height: "90px",
 
-              border: `1px solid ${primary?.lightGrey}`,
+              // border: `1px solid ${primary?.lightGrey}`,
             }}
           />
 

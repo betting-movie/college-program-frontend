@@ -59,10 +59,10 @@ const CustomAbout = styled(Box)(({ theme }) => ({
     ".description-label": {
       fontSize: "1em",
     },
-    ".description-value": { 
+    ".description-value": {
       fontSize: "0.8em",
     },
-  }, 
+  },
 }));
 
 const About = ({ data }) => {
