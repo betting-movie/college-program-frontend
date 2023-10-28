@@ -134,6 +134,24 @@ let themeDef = createTheme({
       },
     },
 
+    MuiTextareaAutosize: {
+      defaultProps: {
+        variant: "filled",
+      },
+      styleOverrides: {
+        root: {
+          fontFamily: fontFamilyInfo,
+          minHeight: 48,
+
+          "&.Mui-focused": {
+            backgroundColor: "transparent",
+            boxShadow: `${(primary.light, 0.25)} 0 0 0 2px`,
+            borderColor: primary?.main,
+          },
+        },
+      },
+    },
+
     MuiSelect: {
       defaultProps: {
         variant: "filled",

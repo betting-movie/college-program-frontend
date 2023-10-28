@@ -143,7 +143,7 @@ const CollegeData = () => {
               optionsData={CollegeType}
               onChange={form.handleChange}
               error={!!checkError("collegeType", form)}
-              helperText={form.errors.collegeType}
+              helperText={form.errors.collegeType} 
             />
           </Grid>
 
