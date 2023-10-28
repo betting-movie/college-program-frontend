@@ -56,7 +56,7 @@ export const uploadFile = async (file) => {
       console.log(evt, "evt", params);
       // File uploading progress
       console.log(
-        "Uploading " + parseInt((evt.loaded * 100) / evt.total) + "%"
+        "Uploading " + parseInt((evt.loaded * 100) / evt.total) + "%",
       );
     })
     .promise();

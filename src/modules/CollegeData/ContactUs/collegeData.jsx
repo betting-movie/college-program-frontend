@@ -416,6 +416,20 @@ const CollegeData = () => {
           </Grid>
 
           <Grid item lg={4} md={4} sm={6} xs={12} style={{ width: "100%" }}>
+            <MemoizedNameField
+              className="input-field"
+              name="averagePackageRange"
+              error={!!checkError("averagePackageRange", form)}
+              helperText={form.errors.averagePackageRange}
+              placeholder="Average Package Range"
+              value={form.values.averagePackageRange}
+              onChange={(e) => {
+                form.handleChange(e);
+              }}
+            />
+          </Grid>
+
+          <Grid item lg={4} md={4} sm={6} xs={12} style={{ width: "100%" }}>
             <MemoizedUploadInput
               form={form}
               id="collegeLogo"
@@ -423,8 +437,26 @@ const CollegeData = () => {
               name="collegeLogo"
               error={!!checkError("collegeLogo", form)}
               helperText={form.errors.collegeLogo}
-              placeholder="Scholarships Offered"
+              placeholder="College logo"
               value={form.values.collegeLogo}
+              picUrlInfo="picUrl"
+              onChange={(e) => {
+                form.handleChange(e);
+              }}
+            />
+          </Grid>
+
+          <Grid item lg={4} md={4} sm={6} xs={12} style={{ width: "100%" }}>
+            <MemoizedUploadInput
+              form={form}
+              id="collegeImage"
+              className="input-field"
+              name="collegeImage"
+              error={!!checkError("collegeImage", form)}
+              helperText={form.errors.collegeImage}
+              placeholder="collegeImage"
+              value={form.values.collegeImage}
+              picUrlInfo="collegePicUrl"
               onChange={(e) => {
                 form.handleChange(e);
               }}
