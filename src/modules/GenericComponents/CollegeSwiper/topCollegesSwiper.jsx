@@ -12,6 +12,7 @@ import { MemoizedBestCollegeCard } from "../College/bestColleges";
 import { useDevice } from "@/src/utils/findDeviceView";
 
 const CustomTopCollegesDataSwiper = styled(Box)(({ theme, ignorePadding }) => ({
+  borderRadius: "8px",
   ".image-section": {
     objectFit: "contain",
     width: "100% !important",

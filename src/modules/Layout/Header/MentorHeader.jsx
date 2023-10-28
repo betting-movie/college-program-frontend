@@ -305,7 +305,7 @@ const MentorHeader = ({ children, ...props }) => {
           <Box style={{ width: "120px" }}>
             <img
               src={"/Images/logo.webp"}
-              alt="Leafy Profit logo"
+              alt="collegestojob logo"
               className={"image-section"}
               style={{ width: "100px" }}
               onClick={() => {

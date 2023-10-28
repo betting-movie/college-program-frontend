@@ -51,7 +51,7 @@ const ExamCard = ({ info }) => {
         }}
       >
         <LazyLoadImage
-          src={info?.examUrl}
+          src={info?.examIcon}
           style={{
             width: "60px",
             height: "60px",

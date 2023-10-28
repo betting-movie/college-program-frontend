@@ -143,7 +143,7 @@ const CollegeData = () => {
               optionsData={CollegeType}
               onChange={form.handleChange}
               error={!!checkError("collegeType", form)}
-              helperText={form.errors.collegeType} 
+              helperText={form.errors.collegeType}
             />
           </Grid>
 
@@ -163,22 +163,22 @@ const CollegeData = () => {
             />
           </Grid>
 
-          <Grid item lg={4} md={4} sm={6} xs={12} style={{ width: "100%" }}>
+          {/* <Grid item lg={4} md={4} sm={6} xs={12} style={{ width: "100%" }}>
             {" "}
             <MemoizedSelectDropDown
               style={{ height: "60px" }}
               form={form}
-              id={"state"}
-              name="state"
+              id={"coursesAvailable"}
+              name="coursesAvailable"
               required={true}
-              title={"Select State"}
+              title={"Select Courses"}
               value={form.values.state}
               optionsData={StatesOptions}
               onChange={form.handleChange}
               error={!!checkError("state", form)}
               helperText={form.errors.state}
             />{" "}
-          </Grid>
+          </Grid> */}
 
           <Grid item lg={4} md={4} sm={6} xs={12} style={{ width: "100%" }}>
             <MemoizedNameField
