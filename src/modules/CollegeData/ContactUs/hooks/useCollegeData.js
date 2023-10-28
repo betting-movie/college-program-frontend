@@ -35,6 +35,9 @@ const useCollegeData = () => {
       collegeLogo: "", //formData
       brochure: "",
       picUrl: "",
+      collegeImage: "",
+      collegePicUrl: "",
+      averagePackageRange: "",
     },
 
     validate: (values) => {
@@ -72,6 +75,8 @@ const useCollegeData = () => {
         totalFaculty: values.totalFaculty,
         scholarshipsOffered: values.scholarshipsOffered,
         collegeLogo: values?.picUrl,
+        collegeImage: values?.collegePicUrl,
+        averagePackageRange: values?.averagePackageRange,
       };
 
       addNewCollege(payload)

@@ -18,6 +18,8 @@ import { MemoizedCityDataSwiper } from "@/src/modules/GenericComponents/CollegeS
 import { MemoizedCourseDataSwiper } from "@/src/modules/GenericComponents/CollegeSwiper/courseSwiper";
 import { MemoizedExamDataSwiper } from "@/src/modules/GenericComponents/CollegeSwiper/examSwiper";
 import { MemoizedTopCollegesDataSwiper } from "@/src/modules/GenericComponents/CollegeSwiper/topCollegesSwiper";
+import { useEffect } from "react";
+import { getColleges } from "@/src/apiService/collegeData";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -468,6 +470,11 @@ const bestColleges = [
 ];
 
 export default function Home() {
+  useEffect(() => {
+    getColleges().then((res) => {
+      console.log("res", res);
+    });
+  }, []);
   return (
     <>
       <Head>

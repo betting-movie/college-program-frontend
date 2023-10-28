@@ -10,7 +10,7 @@ export function useDevice() {
     function handleResize() {
       console.log(
         "window.innerWidth",
-        window.innerWidth > 480 && window.innerWidth <= 1024
+        window.innerWidth > 480 && window.innerWidth <= 1024,
       );
       // Set window width/height to state
       if (window.innerWidth <= 480) {
