@@ -67,7 +67,7 @@ const BestCollegeCard = ({ info }) => {
 
           <Typography
             style={{
-              fontSize: "16px",
+              fontSize: "14px",
               fontStyle: "normal",
               fontWeight: 600,
 

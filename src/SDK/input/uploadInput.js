@@ -26,6 +26,7 @@ const UploadInput = ({
   labelText,
   onChange,
   helperText,
+  picUrlInfo,
   ...rest
 }) => {
   const [file, setFile] = useState(null);
@@ -58,7 +59,7 @@ const UploadInput = ({
                   const test = await uploadFile(file);
 
                   onChange(e);
-                  form.setFieldValue("picUrl", test);
+                  form.setFieldValue(picUrlInfo, test);
                 }}
               >
                 Upload

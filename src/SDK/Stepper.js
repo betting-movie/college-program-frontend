@@ -26,7 +26,7 @@ export const CustomStepper = ({ ...props }) => {
             background: `${step === i ? primary?.fantaGrey : primary?.main}`,
             opacity: step === i ? 1 : 0.6,
           }}
-        />
+        />,
       );
     }
     return rows;

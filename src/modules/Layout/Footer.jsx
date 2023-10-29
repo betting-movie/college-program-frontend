@@ -120,18 +120,18 @@ const Footer = () => {
                   primary={
                     <Typography
                       className="sub-data"
-                      onClick={() => {
-                        navigate.push("/#whyLeafyprofit");
-                      }}
+                      // onClick={() => {
+                      //   navigate.push("/#whyLeafyprofit");
+                      // }}
                     >
-                      {"Why leafyprofit"}
+                      {"Why collegestojob.com"}
                     </Typography>
                   }
                 />
                 {/* </Link> */}
               </ListItem>
 
-              <ListItem sx={{ padding: "8px 0px" }}>
+              {/* <ListItem sx={{ padding: "8px 0px" }}>
                 <ListItemText
                   primary={
                     <Typography
@@ -144,7 +144,7 @@ const Footer = () => {
                     </Typography>
                   }
                 />
-              </ListItem>
+              </ListItem> */}
 
               <ListItem sx={{ padding: "8px 0px" }}>
                 <ListItemText
@@ -226,7 +226,7 @@ const Footer = () => {
                     className="sub-data"
                     sx={{ marginTop: { xs: "-10px" } }}
                   >
-                    {"turn@sales.in"}
+                    {"contact@collegestojon.com"}
                   </Typography>
                 }
               />

@@ -72,8 +72,10 @@ function Header(props) {
     >
       <AppBar
         component="nav"
+        // #1EAE47, #33333300
         sx={{
-          background: primary?.headerColor,
+          background: "#1F74D8", //primary?.main,
+          //background: "linear-gradient(180deg, #1EAE47 0%, #33333300 100%)",
           boxShadow: "none",
         }}
       >
@@ -99,9 +101,9 @@ function Header(props) {
             <Box style={{ width: "120px" }}>
               <img
                 src={"/Images/logo.webp"}
-                alt="Leafy Profit logo"
+                alt="collegestojob logo"
                 className={"image-section"}
-                style={{ width: "100px" }}
+                style={{ width: "80px" }}
                 onClick={() => {
                   navigate.push("/");
                 }}

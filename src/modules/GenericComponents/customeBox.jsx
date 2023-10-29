@@ -8,7 +8,6 @@ const CustomeBoxStyle = styled(Box)(({ theme }) => ({
     padding: "6px",
     borderRadius: "12px",
     border: `2px solid ${primary?.inactiveState}`,
-   
   },
 
   ".value-style": {
