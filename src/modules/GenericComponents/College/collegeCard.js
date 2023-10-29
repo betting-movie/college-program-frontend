@@ -4,6 +4,7 @@ import React from "react";
 import { MemoizedButton } from "@/src/SDK";
 import { primary } from "@/src/SDK/theme";
 import { MemoizedMentorImage } from "../mentorImage";
+import { useRouter } from "next/router";
 
 const CustomCollegeCard = styled(Box)(({ theme }) => ({
   display: "block",
@@ -33,6 +34,12 @@ const CustomCollegeCard = styled(Box)(({ theme }) => ({
 }));
 
 const CollegeCard = ({ info }) => {
+  const pathName =
+    info?.college_name?.toLowerCase()?.split(" ")?.join("-") ?? "/";
+
+  const navigate = useRouter();
+
+  console.log("path", pathName);
   return (
     <MemoizedInfoCard>
       <CustomCollegeCard>
@@ -221,8 +228,7 @@ const CollegeCard = ({ info }) => {
             id="lead-form"
             content={"Know More"}
             handleClick={(e) => {
-              // createCookieInHour("lead_trigger", "contact_us_form", 10);
-              form.handleSubmit(e);
+              navigate.push(pathName);
             }}
             sx={{
               border: "none",
@@ -238,8 +244,7 @@ const CollegeCard = ({ info }) => {
             content={"Eligibility Criteria"}
             sx={{ background: primary?.secondary, fontSize: "14px" }}
             handleClick={(e) => {
-              // createCookieInHour("lead_trigger", "contact_us_form", 10);
-              form.handleSubmit(e);
+              navigate.push(pathName);
             }}
           />
         </Box>

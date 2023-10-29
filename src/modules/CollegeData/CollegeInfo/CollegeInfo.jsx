@@ -2,6 +2,7 @@ import { primary } from "@/src/SDK/theme";
 import { Box, Typography, styled } from "@mui/material";
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { MemoizedCollegeTable } from "./CollegeTableData";
 
 const CustomCollegeInfo = styled(Box)(({ theme }) => ({
   // padding: "10px",
@@ -114,6 +115,8 @@ const CollegeInfo = ({ college }) => {
             margin: "10px 0px 10px 0px",
           }}
         />
+
+        <MemoizedCollegeTable data={college} />
         <Typography className="header-info">Campus and Facilities:</Typography>
         <Typography className="info">{`Spread across an expansive area of ${campusSize}, our campus provides a conducive environment for learning and personal growth. Equipped with modern facilities, including well-equipped laboratories, libraries stocked with an extensive collection of resources, advanced research centers, and sports facilities, our campus serves as a hub for academic and extracurricular activities. Students can immerse themselves in a dynamic learning environment that encourages exploration and intellectual curiosity.`}</Typography>
 
