@@ -49,6 +49,7 @@ const useAboutEdit = () => {
       phone_number: sampleData[0]?.phone_number,
       description: sampleData[0]?.description,
       linkedinUrl: sampleData[0]?.linkedinUrl,
+      experience: sampleData[0]?.experience,
     },
 
     validate: (values) => {
