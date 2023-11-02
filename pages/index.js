@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import { primary } from "@/src/SDK/theme";
-import { Box, Typography } from "@mui/material";
+import { Avatar, Box, Skeleton, Typography } from "@mui/material";
 import { MemoizedFooter, MemoizedHeader } from "@/src/modules/Layout";
 import CollegeCards, {
   MemoizedCollegeCard,
@@ -577,6 +577,35 @@ export default function Home() {
               >
                 Colleges
               </Typography>
+
+              <Box
+                style={{ display: collegeData?.length > 0 ? "none" : "block" }}
+              >
+                <Skeleton variant="rectangular" sx={{ marginBottom: "10px" }}>
+                  <Avatar />
+                </Skeleton>
+                <Skeleton
+                  variant="rectangular"
+                  width="100%"
+                  height={20}
+                  animation="wave"
+                  sx={{ marginBottom: "10px" }}
+                />
+                <Skeleton
+                  variant="rectangular"
+                  width="100%"
+                  height={40}
+                  animation="wave"
+                  sx={{ marginBottom: "10px" }}
+                />
+                <Skeleton
+                  variant="rectangular"
+                  width="100%"
+                  height={80}
+                  animation="wave"
+                  sx={{ marginBottom: "10px" }}
+                />
+              </Box>
 
               <MemoizedCollegeDataSwiper data={collegeData} />
             </Box>
