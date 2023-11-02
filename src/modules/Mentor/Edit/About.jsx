@@ -1,6 +1,6 @@
 import { primary } from "@/src/SDK/theme";
-import { Box, Grid, Typography, styled } from "@mui/material";
-import React, { useState } from "react";
+import { Box, Typography, styled } from "@mui/material";
+import React from "react";
 import { MemoizedDashboardCardHeader } from "../../GenericComponents/dashboardCardHeader";
 import { MemoizedProfilePicture } from "../../GenericComponents/profilePicture";
 import { MemoizedNameField, MemoizedPhoneField } from "@/src/SDK/input";
@@ -8,6 +8,11 @@ import { MemoizedEmailField } from "@/src/SDK/input/emailField";
 import { MemoizedButton } from "@/src/SDK";
 import useAboutEdit from "./hooks/useAboutEdit";
 import { checkError } from "@/src/SDK/utils";
+
+const options = [
+  { id: 1, value: "Val1" },
+  { id: 2, value: "Val2" },
+];
 
 const CustomEditAbout = styled(Box)(({ theme }) => ({
   ".about-container": {
@@ -25,13 +30,12 @@ const CustomEditAbout = styled(Box)(({ theme }) => ({
 }));
 
 const About = () => {
-  const { form, loading, formSubmit, previewURL, setPreviewURL } =
-    useAboutEdit();
+  const { form, loading, previewURL, setPreviewURL } = useAboutEdit();
 
   return (
     <CustomEditAbout>
       <Box className="about-container">
-        <MemoizedDashboardCardHeader title={"About"} route={"/mentor/edit"} />
+        <MemoizedDashboardCardHeader title={"About"} />
 
         <form onSubmit={form.onSubmit}>
           <MemoizedProfilePicture
@@ -152,7 +156,6 @@ const About = () => {
               content={"Update"}
               loading={loading}
               handleClick={(e) => {
-                // createCookieInHour("lead_trigger", "contact_us_form", 10);
                 form.handleSubmit(e);
               }}
               sx={{

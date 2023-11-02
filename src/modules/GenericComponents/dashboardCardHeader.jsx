@@ -37,14 +37,16 @@ const DashboardCardHeader = ({ title, route }) => {
     <CustomeDashboardCardHeader>
       <Box display={"flex"} justifyContent={"space-between"}>
         <Typography className="title">{title}</Typography>
-        <Box className="edit-button-container">
-          <IconButton onClick={() => router.push(route)} className="edit-box">
-            <DriveFileRenameOutlineOutlinedIcon
-              sx={{ fontSize: "1em", marginRight: "4px" }}
-            />
-            Edit
-          </IconButton>
-        </Box>
+        {route && (
+          <Box className="edit-button-container">
+            <IconButton onClick={() => router.push(route)} className="edit-box">
+              <DriveFileRenameOutlineOutlinedIcon
+                sx={{ fontSize: "1em", marginRight: "4px" }}
+              />
+              Edit
+            </IconButton>
+          </Box>
+        )}
       </Box>
       <Divider sx={{ marginBottom: "20px" }} />
     </CustomeDashboardCardHeader>
