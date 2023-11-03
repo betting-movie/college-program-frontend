@@ -32,7 +32,7 @@ const useAchievementsEdit = () => {
   const [loading, setLoading] = useState(false);
   const [formSubmit, setFormSubmit] = useState(false);
   const [achievements, setAchievements] = useState(
-    sampleData[0]?.achievements || [""]
+    sampleData[0]?.achievements || [""],
   );
 
   const form = useFormik({

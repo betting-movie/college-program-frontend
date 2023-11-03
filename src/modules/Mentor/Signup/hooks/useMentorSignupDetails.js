@@ -1,11 +1,15 @@
 import { validateEmail } from "@/src/SDK/utils";
+import { mentorSignup } from "@/src/apiService/mentorService";
+import { Context } from "@/src/context/context";
 import { useFormik } from "formik";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useContext, useState } from "react";
 
 const useMentorSignupDetails = () => {
-  //const { showSnackbar } = useContext(Context);
   const [loading, setLoading] = useState(false);
-  const [formSubmit, setFormSubmit] = useState(false);
+
+  const { showSnackbar } = useContext(Context);
+  const navigate = useRouter();
 
   const form = useFormik({
     validateOnChange: true,
@@ -16,7 +20,6 @@ const useMentorSignupDetails = () => {
     },
 
     validate: (values) => {
-      console.log("hey", values);
       const errors = { ...values?.errors };
 
       if (!values?.email?.toString()) {
@@ -47,77 +50,33 @@ const useMentorSignupDetails = () => {
     },
 
     onSubmit: (values) => {
-      console.log("values", values);
       setLoading(true);
-      setFormSubmit(true);
+      // setFormSubmit(true);
 
-      //   LeadService(values)
-      //     .then((res) => {
-      //       console.log(res, "res");
-      //       setLoading(false);
-      //       localStorage.setItem("phone", values?.mobile);
-      //     })
-      //     .catch((error) => {
-      //       setLoading(false);
-      //       console.log("error", error);
-      //     });
-      //   let analytics_payload = {
-      //     vehicle_name: vehicleDetails?.name ?? "",
-      //     vehicle_id: vehicleDetails?.vehicle_id ?? "",
-      //     emi_shown: vehicleDetails?.emiPrice ?? "",
-      //     price_shown: vehicleDetails?.price ?? "",
-      //     offer_name: offer_name,
-      //     offer_id: offer_id,
-      //     tag_name: tag_name,
-      //     tag_id: tag_id,
-      //     user_name: values.name,
-      //     phone_number: values.mobile,
-      //     state: state.selectedState,
-      //     button_trigger_location: "Contact us",
-      //     type: "contactus_form",
-      //     is_otp_verified: state?.leadVerifiedStatus,
-      //   };
-      //   sendAnalytics("contact_us_clicked", analytics_payload, "en");
-      //   let payload = {
-      //     name: values?.name ?? "",
-      //     phone: values.mobile,
-      //     pan: "",
-      //     pincode: "",
-      //     dob: "",
-      //     state: values?.state ?? "Unknown",
-      //     optedExchange: "",
-      //     vehicleSelected: values.vehicle,
-      //     language: "en",
-      //     refNumber: "",
-      //     leadIntent: "",
-      //     subSource: "Contact Us",
-      //     verified: state?.leadVerifiedStatus,
-      //   };
-      //   setLoading(true);
-      //   LeadService(payload)
-      //     .then((response) => {
-      //       const sessionInfo = {
-      //         leadUuid: response?.data?.uuid,
-      //         newSession: true,
-      //         formSubmitted: true,
-      //         leadIntent: "LOW_INTENT",
-      //       };
-      //       sessionTracking(sessionInfo);
-      //       showSnackbar("We will get back to you soon!!", "success");
-      //       setLoading(false);
-      //     })
-      //     .catch((error) => {
-      //       showSnackbar(
-      //         "Oops, something went wrong. Please try again later.",
-      //         "error"
-      //       );
-      //     });
+      mentorSignup(values)
+        .then((res) => {
+          setLoading(false);
+          localStorage.setItem("phone", values?.mobile);
+
+          showSnackbar("Log in Successfully", "success");
+
+          navigate.push("/mentor/dashboard");
+        })
+        .catch((error) => {
+          setLoading(false);
+          console.log("error", error);
+
+          showSnackbar(
+            error?.msg ?? "Oops, something went wrong. Please try again later.",
+            "error",
+          );
+        });
     },
   });
   return {
     form,
     loading,
-    formSubmit,
+    // formSubmit,
   };
 };
 

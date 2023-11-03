@@ -32,7 +32,7 @@ const useExperienceEdit = () => {
   const [loading, setLoading] = useState(false);
   const [formSubmit, setFormSubmit] = useState(false);
   const [experience, setExperience] = useState(
-    sampleData[0]?.experience || [""]
+    sampleData[0]?.experience || [""],
   );
 
   const form = useFormik({

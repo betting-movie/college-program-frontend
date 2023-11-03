@@ -48,5 +48,5 @@ const MultiSelectAutocomplete = ({
 };
 
 export const MemoizedAutoMultiSelectDropDown = React.memo(
-  MultiSelectAutocomplete
+  MultiSelectAutocomplete,
 );

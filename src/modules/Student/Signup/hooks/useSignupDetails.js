@@ -1,11 +1,14 @@
 import { validateEmail } from "@/src/SDK/utils";
+import { Context } from "@/src/context/context";
 import { useFormik } from "formik";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 const useLoginDetails = () => {
   //const { showSnackbar } = useContext(Context);
   const [loading, setLoading] = useState(false);
   const [formSubmit, setFormSubmit] = useState(false);
+
+  const { showSnackbar } = useContext(Context);
 
   const form = useFormik({
     validateOnChange: true,
@@ -16,7 +19,6 @@ const useLoginDetails = () => {
     },
 
     validate: (values) => {
-      console.log("hey", values);
       const errors = { ...values?.errors };
 
       if (!values?.email?.toString()) {
@@ -50,6 +52,8 @@ const useLoginDetails = () => {
       console.log("values", values);
       setLoading(true);
       setFormSubmit(true);
+
+      showSnackbar("Log in Successfully", "success");
 
       //   LeadService(values)
       //     .then((res) => {

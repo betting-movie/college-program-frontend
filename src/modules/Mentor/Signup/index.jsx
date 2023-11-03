@@ -35,7 +35,7 @@ const CustomMentorSignup = styled(Box)(({ theme }) => ({
 }));
 
 const MentorSignup = () => {
-  const { form, loading, formSubmit } = useMentorSignupDetails();
+  const { form, loading } = useMentorSignupDetails();
 
   return (
     <CustomMentorSignup>
@@ -75,7 +75,7 @@ const MentorSignup = () => {
                 padding: { xs: "10px", sm: "10px", md: "20px", lg: "40px" },
               }}
             >
-              <Typography className="heading"> User MentorSignup</Typography>
+              <Typography className="heading"> Mentor Signup</Typography>
               <Typography>
                 Please log in to get your personal Mentor.
               </Typography>

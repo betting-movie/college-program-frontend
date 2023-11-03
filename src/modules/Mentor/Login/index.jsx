@@ -8,6 +8,7 @@ import { MemoizedPasswordInput } from "@/src/SDK/input/passwordInput";
 import { MemoizedButton } from "@/src/SDK";
 import useMentorLoginDetails from "./hooks/useMentorLoginDetails";
 import { checkError } from "@/src/SDK/utils";
+import { useRouter } from "next/router";
 
 const CustomMentorLogin = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -34,7 +35,9 @@ const CustomMentorLogin = styled(Box)(({ theme }) => ({
 }));
 
 const MentorLogin = () => {
-  const { form, loading, formSubmit } = useMentorLoginDetails();
+  const { form, loading } = useMentorLoginDetails();
+
+  const navigate = useRouter();
 
   return (
     <CustomMentorLogin>
@@ -74,7 +77,7 @@ const MentorLogin = () => {
                 padding: { xs: "10px", sm: "10px", md: "20px", lg: "40px" },
               }}
             >
-              <Typography className="heading"> User Mentor Login</Typography>
+              <Typography className="heading"> Mentor Login</Typography>
               <Typography>
                 Please log in to get your personal Mentor.
               </Typography>
@@ -123,6 +126,22 @@ const MentorLogin = () => {
                   />
                 </Box>
               </form>
+
+              <Typography style={{ marginTop: "10px" }}>
+                New mentor register over here{" "}
+                <span
+                  style={{
+                    color: primary?.main,
+                    fontWeight: "600",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    navigate.push("/mentor/signup");
+                  }}
+                >
+                  Register
+                </span>
+              </Typography>
             </Box>
           </Box>
         </Grid>

@@ -11,7 +11,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ college, selectedCollege }) {
   /* College Name , city,state, collegeType(govt,semigov, private) ,category(Eng, Medical), Courses Available, Ranking, Fees, Placement(High low), collegeLogo, Avg Cutoff, medium of admission(exam), Establishment year,Campus size, No. of students,Number of departments,Rankings (NIRF 2023),Flagship course of study,Number of courses,Total faculty,Types of scholarships offered,Brochure */
-  console.log(college, selectedCollege);
 
   return (
     <>
@@ -68,8 +67,6 @@ export async function getServerSideProps(context) {
         res?.college_name?.toLowerCase()?.split(" ")?.join("-") === college_id
       );
     });
-
-    console.log("selectedCollege", selectedCollege);
 
     // Return the college data as props.
     return {

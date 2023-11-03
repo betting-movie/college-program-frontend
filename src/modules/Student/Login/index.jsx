@@ -112,7 +112,6 @@ const Login = () => {
                     type="submit"
                     loading={loading}
                     handleClick={(e) => {
-                      console.log("click", form);
                       // let payload = {
                       //   phoneNumber: form.values.mobile,
                       //   connectType: "floating_call_icon",

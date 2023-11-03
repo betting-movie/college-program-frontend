@@ -15,7 +15,6 @@ const useLoginDetails = () => {
     },
 
     validate: (values) => {
-      console.log("hey", values);
       const errors = { ...values?.errors };
 
       if (!values?.email?.toString()) {

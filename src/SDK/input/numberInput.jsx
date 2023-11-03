@@ -10,7 +10,13 @@ const CustomNumberField = styled(TextField)(({ theme }) => ({
   },
 }));
 
-const NumberFieldInput = ({ onChange,labelText, helperText, form, ...rest }) => {
+const NumberFieldInput = ({
+  onChange,
+  labelText,
+  helperText,
+  form,
+  ...rest
+}) => {
   return (
     <Box
       sx={{

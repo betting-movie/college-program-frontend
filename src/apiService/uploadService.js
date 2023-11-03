@@ -48,8 +48,6 @@ export const uploadFile = async (file) => {
 
   // Uploading file to s3
 
-  console.log(s3);
-
   var upload = s3
     .putObject(params)
     .on("httpUploadProgress", (evt) => {

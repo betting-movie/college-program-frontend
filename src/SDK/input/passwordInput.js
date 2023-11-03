@@ -27,6 +27,7 @@ const PasswordInput = ({ labelText, onChange, helperText, ...rest }) => {
       {labelText && <Typography>{labelText}</Typography>}
       <CustomPasswordInput
         helperText={helperText}
+        type="password"
         variant="outlined"
         sx={{
           "& .Mui-error": {
