@@ -5,11 +5,20 @@ const snackbarActions = {
   HIDE_SNACKBAR: "hideSnackbar",
 };
 
+const mentorFilterActions = {
+  MENTOR_FILTER: "mentorFilter",
+};
+
+// Initialize & Define states
+
 const initialState = {
   message: "",
   openSnackbar: false,
   severityType: "success",
+  filterSelected: "All",
 };
+
+// Reducer
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -21,6 +30,16 @@ const reducer = (state, action) => {
         message: action.obj.message,
         severityType: action.obj.severityType,
       };
+      return newstate;
+    }
+
+    case mentorFilterActions.MENTOR_FILTER: {
+      const newstate = {
+        ...state,
+
+        filterSelected: action.obj.filterSelected,
+      };
+
       return newstate;
     }
 
@@ -38,6 +57,7 @@ export const CustomContextProvider = ({ children }) => {
     message: state.message,
     openSnackbar: state.openSnackbar,
     severityType: state.severityType,
+    filterSelected: state.filterSelected,
 
     // Snackbar
     showSnackbar: (message, severity) => {
@@ -49,6 +69,14 @@ export const CustomContextProvider = ({ children }) => {
     },
     hideSnackbar: () => {
       dispatch({ type: snackbarActions.HIDE_SNACKBAR });
+    },
+
+    mentorFilter: (filterSelected) => {
+      console.log(filterSelected);
+      const obj = {
+        filterSelected,
+      };
+      dispatch({ type: mentorFilterActions.MENTOR_FILTER, obj });
     },
   };
 

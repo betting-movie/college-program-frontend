@@ -2,7 +2,7 @@ import { KeyboardArrowDownRounded } from "@mui/icons-material";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 export const primary = {
-  main: "#008080",
+  main: "#1F74D8",
   secondary: "#5D5BC0",
   lightMain: "#FFCCD8F",
   dark: "#333333",
