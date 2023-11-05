@@ -31,12 +31,12 @@ const useAchivementsEdit = () => {
         .catch((error) => {
           setLoading(false);
           console.log("error", error);
-          showSnackbar( 
+          showSnackbar(
             error?.msg ?? "Oops, something went wrong. Please try again later.",
-            "error"
+            "error",
           );
         });
-    }, 
+    },
   });
 
   // Fetch mentor data and set it as initial values
@@ -46,7 +46,7 @@ const useAchivementsEdit = () => {
       if (mentorData) {
         form.setValues({
           achivements: mentorData.achivements || [""],
-        }); 
+        });
       }
     });
   }, []);

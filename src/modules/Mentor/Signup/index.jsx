@@ -9,11 +9,25 @@ import { MemoizedButton } from "@/src/SDK";
 import useMentorSignupDetails from "./hooks/useMentorSignupDetails";
 import { checkError } from "@/src/SDK/utils";
 import { MemoizedPhoneField } from "@/src/SDK/input";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import TroubleshootIcon from "@mui/icons-material/Troubleshoot";
+import BubbleChartIcon from "@mui/icons-material/BubbleChart";
+
+import InsightsIcon from "@mui/icons-material/Insights";
 
 const CustomMentorSignup = styled(Box)(({ theme }) => ({
   display: "flex",
 
+  ".trophyColor": {
+    fontSize: "10em",
+    color: primary?.darkYellow,
+  },
+
   ".heading": {
+    fontSize: "3em",
+    fontWeight: "500",
+  },
+  ".headingForm": {
     fontSize: "2em",
     fontWeight: "600",
   },
@@ -25,11 +39,20 @@ const CustomMentorSignup = styled(Box)(({ theme }) => ({
 
   [theme.breakpoints.down("sm")]: {
     ".heading": {
-      fontSize: "1.2em",
+      fontSize: "1.5em",
     },
     ".subHeading": {
       fontSize: "0.8em",
       fontWeight: "400",
+    },
+    ".headingForm": {
+      fontSize: "1.6em",
+      fontWeight: "600",
+    },
+
+    ".trophyColor": {
+      fontSize: "3em",
+      color: primary?.darkYellow,
     },
   },
 }));
@@ -43,20 +66,32 @@ const MentorSignup = () => {
         <Grid item xs={12} sm={12} md={6}>
           {" "}
           <Box
-            sx={{ display: "flex", justifyContent: "center", width: "100%" }}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              width: "100%",
+              background: "linear-gradient(45deg, #144FC3 0%, #475467 100%)",
+            }}
           >
-            <Box sx={{ display: "block", margin: "20px" }}>
-              <Typography className="heading" style={{ textAlign: "center" }}>
+            <Box
+              sx={{
+                display: "block",
+                margin: "20px",
+                justifyContent: "flex-end",
+              }}
+            >
+              <EmojiEventsIcon className="trophyColor" />
+
+              <Typography className="heading" style={{ color: primary?.white }}>
                 Share your{" "}
-                <span style={{ color: primary?.main }}>knowledge</span>, and{" "}
-                <span style={{ color: primary?.main }}>contribute</span> to the
-                success stories of tomorrow.
+                <span style={{ color: primary?.darkYellow }}>knowledge</span>,
+                and{" "}
+                <span style={{ color: primary?.darkYellow }}>contribute</span>{" "}
+                to the success stories of tomorrow.
+                <TroubleshootIcon style={{ color: primary?.darkYellow }} />
               </Typography>
 
-              <LazyLoadImage
-                src={"/Images/login.webp"}
-                style={{ width: "100%" }}
-              />
+              <BubbleChartIcon className="trophyColor" />
             </Box>
           </Box>
         </Grid>
@@ -75,7 +110,7 @@ const MentorSignup = () => {
                 padding: { xs: "10px", sm: "10px", md: "20px", lg: "40px" },
               }}
             >
-              <Typography className="heading"> Mentor Signup</Typography>
+              <Typography className="headingForm"> Mentor Signup</Typography>
               <Typography>
                 Please log in to get your personal Mentor.
               </Typography>
@@ -140,7 +175,25 @@ const MentorSignup = () => {
             </Box>
           </Box>
         </Grid>
+
+        <Typography style={{ margin: "10px" }}>
+        Already a mentor{" "}
+        <span
+          style={{
+            color: primary?.main,
+            fontWeight: "600",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            navigate.push("/mentor/login");
+          }}
+        >
+          Log In
+        </span>
+      </Typography>
       </Grid>
+
+    
     </CustomMentorSignup>
   );
 };

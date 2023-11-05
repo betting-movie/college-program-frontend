@@ -7,7 +7,7 @@ const useExperienceEdit = () => {
   const [loading, setLoading] = useState(false);
   const { showSnackbar } = useContext(Context);
 
-  const form = useFormik({ 
+  const form = useFormik({
     validateOnChange: true,
     enableReinitialize: true,
     initialValues: {
@@ -35,8 +35,8 @@ const useExperienceEdit = () => {
           console.log("error", error);
           showSnackbar(
             error?.msg ?? "Oops, something went wrong. Please try again later.",
-            "error"
-          ); 
+            "error",
+          );
         });
     },
   });
@@ -51,7 +51,7 @@ const useExperienceEdit = () => {
           experience: mentorData.experience || [""],
         });
       }
-    }); 
+    });
   }, []);
 
   return {

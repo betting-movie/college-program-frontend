@@ -1,7 +1,6 @@
 import { validateEmail } from "@/src/SDK/utils";
 import { getMentor, mentorEdit } from "@/src/apiService/mentorService";
 import { Context } from "@/src/context/context";
-import shadows from "@mui/material/styles/shadows";
 import { useFormik } from "formik";
 import { useContext, useEffect, useState } from "react";
 
@@ -69,7 +68,7 @@ const useAboutEdit = () => {
           console.log("error", error);
           showSnackbar(
             error?.msg ?? "Oops, something went wrong. Please try again later.",
-            "error"
+            "error",
           );
         });
     },

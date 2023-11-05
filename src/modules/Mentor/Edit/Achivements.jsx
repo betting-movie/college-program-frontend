@@ -94,12 +94,14 @@ const Achivements = () => {
                   borderRadius: "14px",
                   padding: "8px 16px 8px 16px",
                 }}
-                onClick={() => removeAchivementsField(form.values.achivements.length - 1)}
+                onClick={() =>
+                  removeAchivementsField(form.values.achivements.length - 1)
+                }
               >
                 Remove
               </Button>
-            ) : null} 
-          </Box> 
+            ) : null}
+          </Box>
           <Box display={"flex"} justifyContent={"flex-end"}>
             <MemoizedButton
               id="lead-form"

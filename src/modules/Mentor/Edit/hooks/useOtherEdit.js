@@ -58,7 +58,7 @@ const useOtherEdit = () => {
           console.log("error", error);
           showSnackbar(
             error?.msg ?? "Oops, something went wrong. Please try again later.",
-            "error"
+            "error",
           );
         });
     },

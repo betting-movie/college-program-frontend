@@ -15,7 +15,7 @@ const MentorDashboard = () => {
       console.log("res", res?.data?.guide);
       setMentorData(res?.data?.guide);
     });
-  }, []); 
+  }, []);
   return (
     <MemoizedMentorHeader>
       <MemoizedMentorAbout data={mentorData} />

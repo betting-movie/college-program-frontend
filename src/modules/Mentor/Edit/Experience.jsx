@@ -28,7 +28,7 @@ const Experience = () => {
   const addExperienceField = () => {
     const newExperience = [...form.values.experience, ""];
     form.setFieldValue("experience", newExperience);
-  };  
+  };
 
   const removeExperienceField = (index) => {
     const updatedExperience = [...form.values.experience];
@@ -117,7 +117,7 @@ const Experience = () => {
                 sx={{
                   background: primary?.white,
                   color: primary?.black,
-                  fontWeight: 400, 
+                  fontWeight: 400,
                   borderRadius: "14px",
                   padding: "8px 16px 8px  16px",
                 }}
