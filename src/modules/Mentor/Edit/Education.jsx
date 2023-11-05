@@ -14,7 +14,6 @@ const CustomEditEducation = styled(Box)(({ theme }) => ({
     backgroundColor: primary?.extraLightBlue,
     boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
   },
-
   [theme.breakpoints.down("md")]: {
     ".education-container": {
       padding: "10px",
@@ -23,23 +22,24 @@ const CustomEditEducation = styled(Box)(({ theme }) => ({
 }));
 
 const Education = () => {
-  const { form, loading, education, setEducation } = useEducationEdit();
+  const { form, loading } = useEducationEdit();
 
   const addEducationField = () => {
-    const updatedEducation = [...education, ""];
-    setEducation(updatedEducation);
+    const newEducation = [...form.values.education, ""];
+    form.setFieldValue("education", newEducation);
   };
 
   const removeEducationField = (index) => {
-    const updatedEducation = [...education];
-    updatedEducation.pop();
-    setEducation(updatedEducation);
+    const updatedEducation = [...form.values.education];
+    updatedEducation.splice(index, 1);
+    form.setFieldValue("education", updatedEducation);
   };
+
   return (
     <CustomEditEducation>
       <Box className="education-container">
         <MemoizedDashboardCardHeader title={"Education"} />
-        <form onSubmit={form.onSubmit}>
+        <form onSubmit={form.handleSubmit}>
           <Box
             sx={{
               marginTop: { xs: "10px", sm: "20px", md: "20px", lg: "20px" },
@@ -52,9 +52,9 @@ const Education = () => {
             }}
           >
             <Typography>Education</Typography>
-            {education.map((edu, index) => (
+            {form.values.education.map((edu, index) => (
               <Box
-                key={edu}
+                key={index}
                 sx={{
                   marginBottom: {
                     xs: "10px",
@@ -70,11 +70,7 @@ const Education = () => {
                   name={`education[${index}]`}
                   placeholder="Education"
                   value={edu}
-                  onChange={(e) => {
-                    const updatedEducation = [...education];
-                    updatedEducation[index] = e.target.value;
-                    setEducation(updatedEducation);
-                  }}
+                  onChange={form.handleChange}
                 />
               </Box>
             ))}
@@ -92,7 +88,7 @@ const Education = () => {
             >
               Add Education
             </Button>
-            {education.length > 1 ? (
+            {form.values.education.length > 1 && (
               <Button
                 variant="outlined"
                 sx={{
@@ -102,20 +98,20 @@ const Education = () => {
                   borderRadius: "14px",
                   padding: "8px 16px 8px  16px",
                 }}
-                onClick={removeEducationField}
+                onClick={() =>
+                  removeEducationField(form.values.education.length - 1)
+                }
               >
                 Remove
               </Button>
-            ) : null}
+            )}
           </Box>
           <Box display={"flex"} justifyContent={"flex-end"}>
             <MemoizedButton
               id="lead-form"
               content={"Update"}
               loading={loading}
-              handleClick={(e) => {
-                form.handleSubmit(e);
-              }}
+              handleClick={form.handleSubmit}
               sx={{
                 width: "100%",
                 mt: "24px",

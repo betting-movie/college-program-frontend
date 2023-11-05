@@ -36,9 +36,9 @@ const Experience = ({ data }) => {
           route={"/mentor/edit"}
         />
         <Typography className="comapny-heading">Current Company</Typography>
-        <MemoizedCustomeBox value={data[0]?.current_company} />
+        <MemoizedCustomeBox value={data?.current_company} />
         <Typography className="comapny-heading">Past Experinece</Typography>
-        {data[0]?.experience?.map((item) => (
+        {data?.experience?.map((item) => (
           <MemoizedCustomeBox value={item} />
         ))}
       </Box>

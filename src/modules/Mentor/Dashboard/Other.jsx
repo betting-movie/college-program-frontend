@@ -50,7 +50,7 @@ const Other = ({ data }) => {
                 <span className="description-label"> Consultation Cost: </span>{" "}
                 <span className="description-value">
                   {" "}
-                  {data[0]?.consultation_cost}
+                  {data?.consultation_cost}
                 </span>
               </Typography>
             </Box>
@@ -59,7 +59,7 @@ const Other = ({ data }) => {
             <Box className="other-detail-container">
               <Typography variant="h6">
                 <span className="description-label">Rating: </span>{" "}
-                <span className="description-value"> {data[0]?.rating}</span>
+                <span className="description-value"> {data?.rating}</span>
               </Typography>
             </Box>
           </Grid>
@@ -67,7 +67,7 @@ const Other = ({ data }) => {
             <Box className="other-detail-container">
               <Typography variant="h6">
                 <span className="description-label">Mentees: </span>{" "}
-                <span className="description-value"> {data[0]?.mentees}</span>
+                <span className="description-value"> {data?.mentees}</span>
               </Typography>
             </Box>
           </Grid>
@@ -75,10 +75,7 @@ const Other = ({ data }) => {
             <Box className="other-detail-container">
               <Typography variant="h6">
                 <span className="description-label"> Availability:</span>{" "}
-                <span className="description-value">
-                  {" "}
-                  {data[0]?.availability}
-                </span>
+                <span className="description-value"> {data?.availability}</span>
               </Typography>
             </Box>
           </Grid>

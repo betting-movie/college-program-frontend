@@ -28,7 +28,7 @@ const Achivements = ({ data }) => {
           title={"Achivements"}
           route={"/mentor/edit"}
         />
-        {data[0]?.achievements?.map((item) => (
+        {data?.achivements?.map((item) => (
           <MemoizedCustomeBox value={item} />
         ))}
       </Box>

@@ -46,7 +46,8 @@ const useMentorLoginDetails = () => {
         .then((res) => {
           console.log(res, "res");
           setLoading(false);
-          localStorage.setItem("phone", values?.mobile);
+          localStorage.setItem("mentorId", res?.data?.guide?.id);
+          localStorage.setItem("token", res?.data?.token);
 
           showSnackbar("Log in Successfully", "success");
 
@@ -58,7 +59,7 @@ const useMentorLoginDetails = () => {
 
           showSnackbar(
             error?.msg ?? "Oops, something went wrong. Please try again later.",
-            "error",
+            "error"
           );
         });
     },

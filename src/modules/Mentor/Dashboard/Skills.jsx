@@ -40,7 +40,7 @@ const Skills = ({ data }) => {
       <Box className="expirence-container">
         <MemoizedDashboardCardHeader title={"Skills"} route={"/mentor/edit"} />
         <Grid container spacing={2}>
-          {data[0]?.skills?.map((item) => (
+          {data?.skills?.map((item) => (
             <Grid item xs={12} sm={6} md={4} lg={4} key={item}>
               <Typography className="skill-text-style">{item}</Typography>
             </Grid>

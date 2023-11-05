@@ -9,11 +9,6 @@ import { MemoizedButton } from "@/src/SDK";
 import useAboutEdit from "./hooks/useAboutEdit";
 import { checkError } from "@/src/SDK/utils";
 
-const options = [
-  { id: 1, value: "Val1" },
-  { id: 2, value: "Val2" },
-];
-
 const CustomEditAbout = styled(Box)(({ theme }) => ({
   ".about-container": {
     padding: "20px",
@@ -29,8 +24,9 @@ const CustomEditAbout = styled(Box)(({ theme }) => ({
   },
 }));
 
-const About = () => {
+const About = ({ data }) => {
   const { form, loading, previewURL, setPreviewURL } = useAboutEdit();
+  console.log("URL", previewURL);
 
   return (
     <CustomEditAbout>
@@ -96,6 +92,31 @@ const About = () => {
                 form.handleChange(e);
               }}
             />
+            <Box
+              sx={{
+                marginTop: { xs: "10px", sm: "20px", md: "20px", lg: "20px" },
+                marginBottom: {
+                  xs: "10px",
+                  sm: "20px",
+                  md: "20px",
+                  lg: "20px",
+                },
+              }}
+            >
+              <Typography>Designation</Typography>
+              <MemoizedNameField
+                className="input-field"
+                name="designation"
+                error={!!checkError("designation", form)}
+                helperText={form.errors.designation}
+                placeholder="Designation"
+                value={form.values.designation}
+                onChange={(e) => {
+                  form.handleChange(e);
+                }}
+                style={{ width: "100%" }}
+              />
+            </Box>
             <Box
               sx={{
                 marginTop: { xs: "10px", sm: "20px", md: "20px", lg: "20px" },

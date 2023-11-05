@@ -4,11 +4,11 @@ import { MemoizedDashboardCardHeader } from "../../GenericComponents/dashboardCa
 import { MemoizedNameField } from "@/src/SDK/input";
 import { primary } from "@/src/SDK/theme";
 import { MemoizedButton } from "@/src/SDK";
-import useAchievementsEdit from "./hooks/useAchivements";
+import useAchivementsEdit from "./hooks/useAchivements";
 
-const CustomEditAchievements = styled(Box)(({ theme }) => ({
+const CustomEditAchivements = styled(Box)(({ theme }) => ({
   marginTop: "20px",
-  ".achievements-container": {
+  ".achivements-container": {
     padding: "20px",
     borderRadius: "10px",
     backgroundColor: primary?.extraLightBlue,
@@ -16,46 +16,41 @@ const CustomEditAchievements = styled(Box)(({ theme }) => ({
   },
 
   [theme.breakpoints.down("md")]: {
-    ".achievements-container": {
+    ".achivements-container": {
       padding: "10px",
     },
   },
 }));
 
 const Achivements = () => {
-  const { form, loading, achievements, setAchievements } =
-    useAchievementsEdit();
+  const { form, loading } = useAchivementsEdit();
 
-  const addAchievementsField = () => {
-    const updatedAchievements = [...achievements, ""];
-    setAchievements(updatedAchievements);
+  const addAchivementsField = () => {
+    const updatedAchivements = [...form.values.achivements, ""];
+    form.setFieldValue("achivements", updatedAchivements);
   };
 
-  const removeAchievementsField = (index) => {
-    const updatedAchievements = [...achievements];
-    updatedAchievements.pop();
-    setAchievements(updatedAchievements);
+  const removeAchivementsField = (index) => {
+    const updatedAchivements = [...form.values.achivements];
+    updatedAchivements.splice(index, 1);
+    form.setFieldValue("achivements", updatedAchivements);
   };
+
   return (
-    <CustomEditAchievements>
-      <Box className="achievements-container">
-        <MemoizedDashboardCardHeader title={"Achivements"} />
-        <form onSubmit={form.onSubmit}>
+    <CustomEditAchivements>
+      <Box className="achivements-container">
+        <MemoizedDashboardCardHeader title={"Achievement "} />
+        <form onSubmit={form.handleSubmit}>
           <Box
             sx={{
               marginTop: { xs: "10px", sm: "20px", md: "20px", lg: "20px" },
-              marginBottom: {
-                xs: "10px",
-                sm: "20px",
-                md: "20px",
-                lg: "20px",
-              },
+              marginBottom: { xs: "10px", sm: "20px", md: "20px", lg: "20px" },
             }}
           >
-            <Typography>Achivements</Typography>
-            {achievements.map((ach, index) => (
+            <Typography>achivements</Typography>
+            {form.values.achivements.map((ach, index) => (
               <Box
-                key={ach}
+                key={index}
                 sx={{
                   marginBottom: {
                     xs: "10px",
@@ -67,33 +62,29 @@ const Achivements = () => {
               >
                 <MemoizedNameField
                   style={{ width: "100%" }}
-                  labelText={"Achievements"}
-                  name={`achievements[${index}]`}
-                  placeholder="Achievements"
+                  labelText={"achivements"}
+                  name={`achivements[${index}]`}
+                  placeholder="achivements"
                   value={ach}
-                  onChange={(e) => {
-                    const updatedAchievements = [...achievements];
-                    updatedAchievements[index] = e.target.value;
-                    setAchievements(updatedAchievements);
-                  }}
+                  onChange={form.handleChange}
                 />
               </Box>
             ))}
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
             <Button
-              onClick={addAchievementsField}
+              onClick={addAchivementsField}
               sx={{
                 background: primary?.dark,
                 color: primary?.white,
                 fontWeight: 400,
                 borderRadius: "14px",
-                padding: "8px 16px 8px  16px",
+                padding: "8px 16px 8px 16px",
               }}
             >
-              Add Achievements
+              Add Achivements
             </Button>
-            {achievements.length > 1 ? (
+            {form.values.achivements.length > 1 ? (
               <Button
                 variant="outlined"
                 sx={{
@@ -101,22 +92,20 @@ const Achivements = () => {
                   color: primary?.black,
                   fontWeight: 400,
                   borderRadius: "14px",
-                  padding: "8px 16px 8px  16px",
+                  padding: "8px 16px 8px 16px",
                 }}
-                onClick={removeAchievementsField}
+                onClick={() => removeAchivementsField(form.values.achivements.length - 1)}
               >
                 Remove
               </Button>
-            ) : null}
-          </Box>
+            ) : null} 
+          </Box> 
           <Box display={"flex"} justifyContent={"flex-end"}>
             <MemoizedButton
               id="lead-form"
               content={"Update"}
               loading={loading}
-              handleClick={(e) => {
-                form.handleSubmit(e);
-              }}
+              onClick={form.handleSubmit}
               sx={{
                 width: "100%",
                 mt: "24px",
@@ -126,7 +115,7 @@ const Achivements = () => {
           </Box>
         </form>
       </Box>
-    </CustomEditAchievements>
+    </CustomEditAchivements>
   );
 };
 

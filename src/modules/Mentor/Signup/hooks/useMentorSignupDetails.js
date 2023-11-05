@@ -56,11 +56,9 @@ const useMentorSignupDetails = () => {
       mentorSignup(values)
         .then((res) => {
           setLoading(false);
-          localStorage.setItem("phone", values?.mobile);
 
-          showSnackbar("Log in Successfully", "success");
-
-          navigate.push("/mentor/dashboard");
+          showSnackbar("Sign Up Successfully", "success");
+          navigate.push("/mentor/login");
         })
         .catch((error) => {
           setLoading(false);
@@ -68,7 +66,7 @@ const useMentorSignupDetails = () => {
 
           showSnackbar(
             error?.msg ?? "Oops, something went wrong. Please try again later.",
-            "error",
+            "error"
           );
         });
     },

@@ -23,23 +23,24 @@ const CustomEditExperience = styled(Box)(({ theme }) => ({
 }));
 
 const Experience = () => {
-  const { form, loading, experience, setExperience } = useExperienceEdit();
+  const { form, loading } = useExperienceEdit();
+
   const addExperienceField = () => {
-    const updatedExperience = [...experience, ""];
-    setExperience(updatedExperience);
-  };
+    const newExperience = [...form.values.experience, ""];
+    form.setFieldValue("experience", newExperience);
+  };  
 
   const removeExperienceField = (index) => {
-    const updatedExperience = [...experience];
-    updatedExperience.pop();
-    setExperience(updatedExperience);
+    const updatedExperience = [...form.values.experience];
+    updatedExperience.splice(index, 1);
+    form.setFieldValue("experience", updatedExperience);
   };
 
   return (
     <CustomEditExperience>
       <Box className="experience-container">
         <MemoizedDashboardCardHeader title={"Experience"} />
-        <form onSubmit={form.onSubmit}>
+        <form onSubmit={form.handleSubmit}>
           <Box
             sx={{
               marginTop: { xs: "10px", sm: "20px", md: "20px", lg: "20px" },
@@ -55,13 +56,10 @@ const Experience = () => {
             <MemoizedNameField
               className="input-field"
               name="current_company"
-              // error={!!checkError("current_company", form)}
-              helperText={form.errors.name}
+              helperText={form.errors.current_company}
               placeholder="Current Company"
               value={form.values.current_company}
-              onChange={(e) => {
-                form.handleChange(e);
-              }}
+              onChange={form.handleChange}
               style={{ width: "100%" }}
             />
           </Box>
@@ -77,9 +75,9 @@ const Experience = () => {
             }}
           >
             <Typography>Experience</Typography>
-            {experience.map((exp, index) => (
+            {form.values.experience.map((exp, index) => (
               <Box
-                key={exp}
+                key={index}
                 sx={{
                   marginBottom: {
                     xs: "10px",
@@ -95,11 +93,7 @@ const Experience = () => {
                   name={`experience[${index}]`}
                   placeholder="Experience"
                   value={exp}
-                  onChange={(e) => {
-                    const updatedExperience = [...experience];
-                    updatedExperience[index] = e.target.value;
-                    setExperience(updatedExperience);
-                  }}
+                  onChange={form.handleChange}
                 />
               </Box>
             ))}
@@ -117,17 +111,19 @@ const Experience = () => {
             >
               Add Experience
             </Button>
-            {experience.length > 1 ? (
+            {form.values.experience.length > 1 ? (
               <Button
                 variant="outlined"
                 sx={{
                   background: primary?.white,
                   color: primary?.black,
-                  fontWeight: 400,
+                  fontWeight: 400, 
                   borderRadius: "14px",
                   padding: "8px 16px 8px  16px",
                 }}
-                onClick={removeExperienceField}
+                onClick={() =>
+                  removeExperienceField(form.values.experience.length - 1)
+                }
               >
                 Remove
               </Button>
@@ -138,9 +134,7 @@ const Experience = () => {
               id="lead-form"
               content={"Update"}
               loading={loading}
-              handleClick={(e) => {
-                form.handleSubmit(e);
-              }}
+              handleClick={form.handleSubmit}
               sx={{
                 width: "100%",
                 mt: "24px",

@@ -71,43 +71,39 @@ const About = ({ data }) => {
       <Box className="about-container">
         <MemoizedDashboardCardHeader title={"About"} route={"/mentor/edit"} />
         <Box className="profile-container">
-          <Avatar
-            alt={data[0]?.name}
-            src={data[0]?.profile_pic}
-            className="avatar"
-          />
+          <Avatar alt={data?.name} src={data?.profile_pic} className="avatar" />
           <Typography variant="h6" className="name">
-            {data[0]?.name}
+            {data?.name}
           </Typography>
         </Box>
         <Box className="other-detail-container">
           <Typography variant="h6">
             <span className="description-label">Designation:</span>{" "}
-            <span className="description-value">{data[0]?.designation}</span>
+            <span className="description-value">{data?.designation}</span>
           </Typography>
         </Box>
         <Box className="other-detail-container">
           <Typography variant="h6">
             <span className="description-label">Email: </span>{" "}
-            <span className="description-value">{data[0]?.email}</span>
+            <span className="description-value">{data?.email}</span>
           </Typography>
         </Box>
         <Box className="other-detail-container">
           <Typography variant="h6">
             <span className="description-label">Mobile No.</span>{" "}
-            <span className="description-value">{data[0]?.phone_number}</span>
+            <span className="description-value">{data?.phone_number}</span>
           </Typography>
         </Box>
         <Box className="other-detail-container">
           <Typography variant="h6">
             <span className="description-label">Linkedin:</span>{" "}
-            <span className="description-value">{data[0]?.linkedinUrl}</span>
+            <span className="description-value">{data?.linkedinUrl}</span>
           </Typography>
         </Box>
         <Box className="other-detail-container">
           <Typography variant="h6">
             <span className="description-label">Description:</span>{" "}
-            <span className="description-value">{data[0]?.description} </span>
+            <span className="description-value">{data?.description} </span>
           </Typography>
         </Box>
       </Box>

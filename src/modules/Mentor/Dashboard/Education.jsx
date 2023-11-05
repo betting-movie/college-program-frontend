@@ -27,7 +27,7 @@ const Education = ({ data }) => {
           title={"Education"}
           route={"/mentor/edit"}
         />
-        {data[0]?.education?.map((item) => (
+        {data?.education?.map((item) => (
           <MemoizedCustomeBox value={item} />
         ))}
       </Box>
