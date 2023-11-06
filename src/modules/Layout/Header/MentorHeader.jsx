@@ -256,7 +256,7 @@ const MentorHeader = ({ children, ...props }) => {
         onClick={() => {
           navigate.push("/");
         }}
-        sx={{ background: primary?.lightYellowBg }}
+        sx={{ background: "#1F74D8", }}
       >
         <img src={"/Images/logo.webp"} style={{ width: "100px" }} />
       </Typography>
@@ -288,7 +288,7 @@ const MentorHeader = ({ children, ...props }) => {
       <AppBar
         component="nav"
         sx={{
-          background: primary?.lightYellowBg,
+          background: "#1F74D8", //primary?.lightYellowBg,
           boxShadow: "none",
         }}
       >
