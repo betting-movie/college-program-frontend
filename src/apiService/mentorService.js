@@ -39,3 +39,7 @@ export const mentorEdit = (payload) => {
   const mentorId = localStorage.getItem("mentorId");
   return axios.put(`api/v1/guide/update/${mentorId}`, payload);
 };
+
+export const mentorLogout = () => {
+  localStorage.clear();
+};
