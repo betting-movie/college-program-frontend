@@ -9,6 +9,9 @@ const mentorFilterActions = {
   MENTOR_FILTER: "mentorFilter",
 };
 
+const mentorListActions = {
+  MENTOR_LIST: "mentorListInfo",
+};
 // Initialize & Define states
 
 const initialState = {
@@ -16,6 +19,7 @@ const initialState = {
   openSnackbar: false,
   severityType: "success",
   filterSelected: "All",
+  mentorList: [],
 };
 
 // Reducer
@@ -43,6 +47,16 @@ const reducer = (state, action) => {
       return newstate;
     }
 
+    case mentorListActions.MENTOR_LIST: {
+      const newstate = {
+        ...state,
+
+        mentorList: action.obj.mentorList,
+      };
+
+      return newstate;
+    }
+
     default:
       return state;
   }
@@ -58,6 +72,7 @@ export const CustomContextProvider = ({ children }) => {
     openSnackbar: state.openSnackbar,
     severityType: state.severityType,
     filterSelected: state.filterSelected,
+    mentorList: state.mentorList,
 
     // Snackbar
     showSnackbar: (message, severity) => {
@@ -77,6 +92,13 @@ export const CustomContextProvider = ({ children }) => {
         filterSelected,
       };
       dispatch({ type: mentorFilterActions.MENTOR_FILTER, obj });
+    },
+
+    mentorListInfo: (mentorList) => {
+      const obj = {
+        mentorList,
+      };
+      dispatch({ type: mentorListActions.MENTOR_LIST, obj });
     },
   };
 

@@ -177,23 +177,21 @@ const MentorSignup = () => {
         </Grid>
 
         <Typography style={{ margin: "10px" }}>
-        Already a mentor{" "}
-        <span
-          style={{
-            color: primary?.main,
-            fontWeight: "600",
-            cursor: "pointer",
-          }}
-          onClick={() => {
-            navigate.push("/mentor/login");
-          }}
-        >
-          Log In
-        </span>
-      </Typography>
+          Already a mentor{" "}
+          <span
+            style={{
+              color: primary?.main,
+              fontWeight: "600",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              navigate.push("/mentor/login");
+            }}
+          >
+            Log In
+          </span>
+        </Typography>
       </Grid>
-
-    
     </CustomMentorSignup>
   );
 };

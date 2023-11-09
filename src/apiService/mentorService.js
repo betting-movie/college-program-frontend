@@ -40,6 +40,13 @@ export const mentorEdit = (payload) => {
   return axios.put(`api/v1/guide/update/${mentorId}`, payload);
 };
 
+// This can be combined with above api
+export const getMentorDetails = (mentorId) => {
+  return axios.get(`api/v1/guide/get-guide/${mentorId}`);
+};
+
+export const getAllMentors = () => {
+  return axios.get(`/api/v1/guide/get-all-guide`);
 export const mentorLogout = () => {
   localStorage.clear();
 };
