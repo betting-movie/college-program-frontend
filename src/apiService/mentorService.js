@@ -47,6 +47,7 @@ export const getMentorDetails = (mentorId) => {
 
 export const getAllMentors = () => {
   return axios.get(`/api/v1/guide/get-all-guide`);
+}
 export const mentorLogout = () => {
   localStorage.clear();
 };
