@@ -19,7 +19,10 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import AdsClickOutlinedIcon from "@mui/icons-material/AdsClickOutlined";
+import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
+import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 import { MemoizedMentorInspiredList } from "../../Mentor/MentorInspiredList/MentorInspiredList";
+import { mentorLogout } from "@/src/apiService/mentorService";
 
 const sampleData = [
   {
@@ -229,10 +232,15 @@ const sampleData = [
 
 const drawerWidth = 240;
 const navItems = [
-  { name: "Home", path: "/", icon: <HomeOutlinedIcon /> },
-  { name: "Trial Bookings", path: "/", icon: <PersonAddOutlinedIcon /> },
-  { name: "Messages", path: "/", icon: <EmailOutlinedIcon /> },
-  { name: "My Sessions", path: "/", icon: <AdsClickOutlinedIcon /> },
+  { name: "Home", path: "/mentor/dashboard", icon: <HomeOutlinedIcon /> },
+  {
+    name: "Trial Bookings",
+    path: "/mentor/dashboard",
+    icon: <PersonAddOutlinedIcon />,
+  },
+  { name: "Messages", path: "/mentor/dashboard", icon: <EmailOutlinedIcon /> },
+  { name: "Configure", path: "/mentor/edit", icon: <BuildOutlinedIcon /> },
+
   // { name: "Why leafyprofit", path: "/#whyLeafyprofit" },
 
   // { name: "Our plantation", path: "/#ourplantation" },
@@ -241,6 +249,7 @@ const navItems = [
 
 const MentorHeader = ({ children, ...props }) => {
   console.log("Props-->", props);
+  const [selectedItem, setSelectedItem] = React.useState(navItems[0]);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const navigate = useRouter();
@@ -256,7 +265,7 @@ const MentorHeader = ({ children, ...props }) => {
         onClick={() => {
           navigate.push("/");
         }}
-        sx={{ background: primary?.lightYellowBg }}
+        sx={{ background: "#1F74D8" }}
       >
         <img src={"/Images/logo.webp"} style={{ width: "100px" }} />
       </Typography>
@@ -265,9 +274,18 @@ const MentorHeader = ({ children, ...props }) => {
         {navItems.map((item) => (
           <ListItem key={item?.name} disablePadding>
             <ListItemButton
-              //   sx={{ textAlign: "center" }}
               onClick={() => {
                 navigate.push(item?.path);
+                setSelectedItem((prevItem) =>
+                  prevItem === item ? null : item
+                );
+              }}
+              sx={{
+                backgroundColor:
+                  selectedItem === item ? primary?.lightGrey : primary?.white,
+                borderRadius: "20px",
+                marginRight: "10px",
+                marginLeft: "10px",
               }}
             >
               <ListItemIcon>{item?.icon}</ListItemIcon>
@@ -275,6 +293,18 @@ const MentorHeader = ({ children, ...props }) => {
             </ListItemButton>
           </ListItem>
         ))}
+
+        <ListItem key={"Logout"} disablePadding>
+          <ListItemButton
+            onClick={() => {
+              mentorLogout();
+              navigate.push("/");
+            }}
+          >
+            <ListItemIcon>{<ExitToAppOutlinedIcon />}</ListItemIcon>
+            <ListItemText primary={"Logout"} />
+          </ListItemButton>
+        </ListItem>
       </List>
     </Box>
   );
@@ -288,7 +318,7 @@ const MentorHeader = ({ children, ...props }) => {
       <AppBar
         component="nav"
         sx={{
-          background: primary?.lightYellowBg,
+          background: "#1F74D8", //primary?.lightYellowBg,
           boxShadow: "none",
         }}
       >

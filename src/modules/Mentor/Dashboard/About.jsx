@@ -5,6 +5,7 @@ import React from "react";
 import { MemoizedDashboardCardHeader } from "../../GenericComponents/dashboardCardHeader";
 
 const CustomAbout = styled(Box)(({ theme }) => ({
+  marginTop:"20px",
   ".about-container": {
     padding: "20px",
     borderRadius: "10px",

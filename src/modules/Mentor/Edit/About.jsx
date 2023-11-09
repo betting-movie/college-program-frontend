@@ -10,6 +10,7 @@ import useAboutEdit from "./hooks/useAboutEdit";
 import { checkError } from "@/src/SDK/utils";
 
 const CustomEditAbout = styled(Box)(({ theme }) => ({
+  marginTop:"20px",
   ".about-container": {
     padding: "20px",
     borderRadius: "10px",
