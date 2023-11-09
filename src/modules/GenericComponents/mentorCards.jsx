@@ -5,6 +5,7 @@ import React from "react";
 import { MemoizedMentorImage } from "./mentorImage";
 import { MemoizedButton } from "@/src/SDK";
 import { primary } from "@/src/SDK/theme";
+import { useRouter } from "next/router";
 
 const CustomMentorCard = styled(Box)(({ theme }) => ({
   display: "block",
@@ -35,6 +36,8 @@ const CustomMentorCard = styled(Box)(({ theme }) => ({
 
 const MentorCard = ({ info, id }) => {
   console.log(info, id);
+
+  const navigate = useRouter();
 
   return (
     <MemoizedInfoCard>
@@ -91,7 +94,7 @@ const MentorCard = ({ info, id }) => {
               fontWeight: 400,
             }}
           >
-            {info?.experience[0]}
+            {info?.experience && info?.experience[0]}
           </Typography>
           <Typography
             style={{
@@ -205,7 +208,8 @@ const MentorCard = ({ info, id }) => {
             content={"View Profile"}
             handleClick={(e) => {
               // createCookieInHour("lead_trigger", "contact_us_form", 10);
-              form.handleSubmit(e);
+              const path = info?.name?.toLowerCase().split(" ")?.join("-");
+              navigate.push(`your-mentor/${path}`);
             }}
             sx={{
               border: "none",

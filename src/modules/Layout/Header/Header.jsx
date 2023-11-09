@@ -19,6 +19,7 @@ import { useRouter } from "next/router";
 const drawerWidth = 240;
 const navItems = [
   { name: "Become a Mentor", path: "/mentor/login" },
+  { name: "Get Your Dream Job", path: "/your-mentor" },
   // { name: "Why leafyprofit", path: "/#whyLeafyprofit" },
 
   // { name: "Our plantation", path: "/#ourplantation" },
