@@ -27,7 +27,6 @@ const MentorList = ({ mentorData }) => {
           width: "100%",
           justifyContent: "space-between",
           overflowX: "auto",
-          display: "flex",
           overflowY: "hidden",
           flexDirection: "row",
           whiteSpace: "nowrap",

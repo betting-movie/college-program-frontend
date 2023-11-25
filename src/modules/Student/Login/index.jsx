@@ -8,6 +8,7 @@ import { MemoizedPasswordInput } from "@/src/SDK/input/passwordInput";
 import { MemoizedButton } from "@/src/SDK";
 import useLoginDetails from "./hooks/useLoginDetails";
 import { checkError } from "@/src/SDK/utils";
+import { useRouter } from "next/router";
 
 const CustomLogin = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -35,6 +36,8 @@ const CustomLogin = styled(Box)(({ theme }) => ({
 
 const Login = () => {
   const { form, loading, formSubmit } = useLoginDetails();
+
+  const navigate = useRouter();
 
   return (
     <CustomLogin>
@@ -122,6 +125,22 @@ const Login = () => {
                   />
                 </Box>
               </form>
+
+              <Typography style={{ marginTop: "10px" }}>
+                New student register over here{" "}
+                <span
+                  style={{
+                    color: primary?.main,
+                    fontWeight: "600",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    navigate.push("/student/signup");
+                  }}
+                >
+                  Register
+                </span>
+              </Typography>
             </Box>
           </Box>
         </Grid>

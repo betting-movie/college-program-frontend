@@ -14,6 +14,7 @@ import TroubleshootIcon from "@mui/icons-material/Troubleshoot";
 import BubbleChartIcon from "@mui/icons-material/BubbleChart";
 
 import InsightsIcon from "@mui/icons-material/Insights";
+import { useRouter } from "next/router";
 
 const CustomMentorSignup = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -59,6 +60,7 @@ const CustomMentorSignup = styled(Box)(({ theme }) => ({
 
 const MentorSignup = () => {
   const { form, loading } = useMentorSignupDetails();
+  const navigate = useRouter();
 
   return (
     <CustomMentorSignup>
@@ -172,25 +174,24 @@ const MentorSignup = () => {
                   />
                 </Box>
               </form>
+              <Typography style={{ margin: "10px" }}>
+                Already a mentor{" "}
+                <span
+                  style={{
+                    color: primary?.main,
+                    fontWeight: "600",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    navigate.push("/mentor/login");
+                  }}
+                >
+                  Log In
+                </span>
+              </Typography>
             </Box>
           </Box>
         </Grid>
-
-        <Typography style={{ margin: "10px" }}>
-          Already a mentor{" "}
-          <span
-            style={{
-              color: primary?.main,
-              fontWeight: "600",
-              cursor: "pointer",
-            }}
-            onClick={() => {
-              navigate.push("/mentor/login");
-            }}
-          >
-            Log In
-          </span>
-        </Typography>
       </Grid>
     </CustomMentorSignup>
   );

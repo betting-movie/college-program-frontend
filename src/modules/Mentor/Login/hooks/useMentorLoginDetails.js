@@ -48,6 +48,7 @@ const useMentorLoginDetails = () => {
           setLoading(false);
           localStorage.setItem("mentorId", res?.data?.guide?.id);
           localStorage.setItem("token", res?.data?.token);
+          localStorage.setItem("userRole", res?.data?.guide?.role);
 
           showSnackbar("Log in Successfully", "success");
 
@@ -59,7 +60,7 @@ const useMentorLoginDetails = () => {
 
           showSnackbar(
             error?.msg ?? "Oops, something went wrong. Please try again later.",
-            "error",
+            "error"
           );
         });
     },

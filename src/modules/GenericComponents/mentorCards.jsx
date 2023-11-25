@@ -208,8 +208,12 @@ const MentorCard = ({ info, id }) => {
             content={"View Profile"}
             handleClick={(e) => {
               // createCookieInHour("lead_trigger", "contact_us_form", 10);
-              const path = info?.name?.toLowerCase().split(" ")?.join("-");
-              navigate.push(`your-mentor/${path}`);
+              if (localStorage.getItem("token")) {
+                const path = info?.name?.toLowerCase().split(" ")?.join("-");
+                navigate.push(`your-mentor/${path}`);
+              } else {
+                navigate.push("student/login");
+              }
             }}
             sx={{
               border: "none",
@@ -226,7 +230,13 @@ const MentorCard = ({ info, id }) => {
             sx={{ background: primary?.secondary, fontSize: "14px" }}
             handleClick={(e) => {
               // createCookieInHour("lead_trigger", "contact_us_form", 10);
-              form.handleSubmit(e);
+              // form.handleSubmit(e);
+              if (localStorage.getItem("token")) {
+                const path = info?.name?.toLowerCase().split(" ")?.join("-");
+                navigate.push(`your-mentor/${path}`);
+              } else {
+                navigate.push("student/login");
+              }
             }}
           />
         </Box>

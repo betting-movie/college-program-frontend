@@ -6,7 +6,7 @@ import { MemoizedCollegeData } from "@/src/modules/CollegeData/ContactUs";
 import { MemoizedSignup } from "@/src/modules/Student/Signup";
 import { MemoizedInfoCard } from "@/src/SDK/cards/infoCard";
 import { MemoizedMentorList } from "@/src/modules/Student/MentorList/MentorList";
-import { MemoizedHeader } from "@/src/modules/Layout";
+import { MemoizedHeader, MemoizedStudentHeader } from "@/src/modules/Layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -228,8 +228,10 @@ export default function StudentSignup() {
       </Head>
 
       <Box>
-        <MemoizedHeader />
-        <MemoizedMentorList mentorData={sampleData} />
+        {/* <MemoizedHeader /> */}
+        <MemoizedStudentHeader>
+          <MemoizedMentorList mentorData={sampleData} />
+        </MemoizedStudentHeader>
       </Box>
     </>
   );

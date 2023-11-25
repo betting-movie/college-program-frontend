@@ -56,9 +56,13 @@ const useMentorSignupDetails = () => {
       mentorSignup(values)
         .then((res) => {
           setLoading(false);
+          localStorage.setItem("mentorId", res?.data?.guide?.id);
+          localStorage.setItem("token", res?.data?.token);
+          localStorage.setItem("userRole", res?.data?.guide?.role);
 
           showSnackbar("Sign Up Successfully", "success");
-          navigate.push("/mentor/login");
+
+          navigate.push("/mentor/dashboard");
         })
         .catch((error) => {
           setLoading(false);
@@ -66,7 +70,7 @@ const useMentorSignupDetails = () => {
 
           showSnackbar(
             error?.msg ?? "Oops, something went wrong. Please try again later.",
-            "error",
+            "error"
           );
         });
     },
