@@ -1,4 +1,4 @@
-import { getMentor, mentorEdit } from "@/src/apiService/mentorService";
+import { getMentorDetails, mentorEdit } from "@/src/apiService/mentorService";
 import { Context } from "@/src/context/context";
 
 const { useFormik } = require("formik");
@@ -8,8 +8,10 @@ const useOtherEdit = () => {
   const [loading, setLoading] = useState(false);
   const { showSnackbar } = useContext(Context);
   const [mentorData, setMentorData] = useState();
+
   useEffect(() => {
-    getMentor().then((res) => {
+    const mentorId = localStorage.getItem("mentorId");
+    getMentorDetails(mentorId).then((res) => {
       console.log("res", res?.data?.guide);
       setMentorData(res?.data?.guide);
     });
@@ -58,7 +60,7 @@ const useOtherEdit = () => {
           console.log("error", error);
           showSnackbar(
             error?.msg ?? "Oops, something went wrong. Please try again later.",
-            "error",
+            "error"
           );
         });
     },

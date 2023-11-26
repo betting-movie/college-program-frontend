@@ -1,4 +1,4 @@
-import { getMentor, mentorEdit } from "@/src/apiService/mentorService";
+import { getMentorDetails, mentorEdit } from "@/src/apiService/mentorService";
 import { Context } from "@/src/context/context";
 import { useFormik } from "formik";
 import { useContext, useEffect, useState } from "react";
@@ -35,7 +35,7 @@ const useExperienceEdit = () => {
           console.log("error", error);
           showSnackbar(
             error?.msg ?? "Oops, something went wrong. Please try again later.",
-            "error",
+            "error"
           );
         });
     },
@@ -43,7 +43,8 @@ const useExperienceEdit = () => {
 
   // Fetch mentor data and set it as initial values
   useEffect(() => {
-    getMentor().then((res) => {
+    const mentorId = localStorage.getItem("mentorId");
+    getMentorDetails(mentorId).then((res) => {
       const mentorData = res?.data?.guide;
       if (mentorData) {
         form.setValues({

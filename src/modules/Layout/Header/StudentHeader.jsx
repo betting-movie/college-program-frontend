@@ -108,7 +108,7 @@ const StudentHeader = ({ children, ...props }) => {
 
   return (
     <Box
-      sx={{ display: "flex", margin: { md: "36px", xs: "30px", sm: "30px" } }}
+      sx={{ display: "flex", margin: { md: "10px", xs: "30px", sm: "30px" } }}
     >
       <AppBar
         component="nav"
@@ -177,14 +177,7 @@ const StudentHeader = ({ children, ...props }) => {
           {drawer}
         </Drawer>
       </Box>
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          p: 1,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-        }}
-      >
+      <Box component="main">
         <Toolbar />
         <Box>{children}</Box>
       </Box>

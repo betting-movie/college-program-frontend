@@ -6,12 +6,14 @@ import { MemoizedMentorExperience } from "./Experience";
 import { MemoizedMentorAchivements } from "./Achivements";
 import { MemoizedMentorEducation } from "./Education";
 import { MemoizedMentorOhters } from "./Other";
-import { getMentor } from "@/src/apiService/mentorService";
+import { getMentorDetails } from "@/src/apiService/mentorService";
 
 const MentorDashboard = () => {
   const [mentorData, setMentorData] = useState();
+
   useEffect(() => {
-    getMentor().then((res) => {
+    const mentorId = localStorage.getItem("mentorId");
+    getMentorDetails(mentorId).then((res) => {
       console.log("res", res?.data?.guide);
       setMentorData(res?.data?.guide);
     });

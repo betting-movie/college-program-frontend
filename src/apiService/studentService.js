@@ -4,20 +4,21 @@ export const headers = {
   "Content-Type": "application/json",
 };
 
-// export const setAuthToken = () => {
-//   const authToken = localStorage.getItem("token");
-//   if (authToken) {
-//     headers["Authorization"] = `Bearer ${authToken}`;
-//   } else {
-//     delete headers["Authorization"];
-//   }
-// };
+const setAuthToken = () => {
+  const authToken = localStorage.getItem("token");
+  const newHeaders = { ...headers };
 
-// Interceptor to set the token before each request
-// axios.interceptors.request.use((config) => {
-//   setAuthToken();
-//   return config;
-// });
+  if (authToken) {
+    newHeaders["Authorization"] = `Bearer ${authToken}`;
+  }
+
+  return newHeaders;
+};
+
+axios.interceptors.request.use((config) => {
+  config.headers = setAuthToken();
+  return config;
+});
 
 export const studentSignup = (payload) => {
   headers.auth_token = process.env.NEXT_PUBLIC_TOKEN;
