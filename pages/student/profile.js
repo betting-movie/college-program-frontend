@@ -5,6 +5,7 @@ import { Box } from "@mui/material";
 import { MemoizedCollegeData } from "@/src/modules/CollegeData/ContactUs";
 import { MemoizedLogin } from "@/src/modules/Student/Login";
 import { MemoizedHeader } from "@/src/modules/Layout";
+import { MemoizedStudentProfile } from "@/src/modules/Student/profile";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,7 @@ export default function StudentProfile() {
         <link rel="icon" href="/images/logo.svg" />
       </Head>
       {/* <MemoizedHeader/> */}
-      Student Profile
+      <MemoizedStudentProfile />
     </>
   );
 }

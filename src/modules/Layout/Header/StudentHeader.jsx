@@ -13,10 +13,10 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { primary } from "@/src/SDK/theme";
-import { Link, ListItemIcon } from "@mui/material";
+import {  ListItemIcon } from "@mui/material";
 import { useRouter } from "next/router";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
+import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import AdsClickOutlinedIcon from "@mui/icons-material/AdsClickOutlined";
 import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
@@ -24,9 +24,11 @@ import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 import { MemoizedMentorInspiredList } from "../../Mentor/MentorInspiredList/MentorInspiredList";
 import { mentorLogout } from "@/src/apiService/mentorService";
 
+
 const drawerWidth = 240;
 const navItems = [
   { name: "Home", path: "/student/dashboard", icon: <HomeOutlinedIcon /> },
+  { name: "My Profile", path: "/student/profile", icon: <PermIdentityOutlinedIcon /> },
   //   {
   //     name: "Trial Bookings",
   //     path: "/student/dashboard",
@@ -108,7 +110,7 @@ const StudentHeader = ({ children, ...props }) => {
 
   return (
     <Box
-      sx={{ display: "flex", margin: { md: "10px", xs: "30px", sm: "30px" } }}
+      sx={{ display: "flex", margin: { md: "36px", xs: "30px", sm: "30px" } }}
     >
       <AppBar
         component="nav"

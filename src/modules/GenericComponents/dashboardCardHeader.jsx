@@ -8,6 +8,7 @@ const CustomeDashboardCardHeader = styled(Box)(({ theme }) => ({
   ".title": {
     fontSize: "2em",
     fontWeight: 600,
+    color: primary?.mainText,
   },
   ".edit-box": {
     borderRadius: "4px",
@@ -31,7 +32,7 @@ const CustomeDashboardCardHeader = styled(Box)(({ theme }) => ({
   },
 }));
 
-const DashboardCardHeader = ({ title, route }) => {
+const DashboardCardHeader = ({ title, route, style }) => {
   const router = useRouter();
   return (
     <CustomeDashboardCardHeader>
