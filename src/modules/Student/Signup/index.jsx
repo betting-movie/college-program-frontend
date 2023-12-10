@@ -1,18 +1,14 @@
 import { primary } from "@/src/SDK/theme";
 import { Box, Grid, Typography, styled } from "@mui/material";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
 import React from "react";
 import { MemoizedEmailField } from "@/src/SDK/input/emailField";
 import { MemoizedPasswordInput } from "@/src/SDK/input/passwordInput";
 import { MemoizedButton } from "@/src/SDK";
-
 import { checkError } from "@/src/SDK/utils";
-import useSignUpDetails from "./hooks/useSignUpDetails";
 import { MemoizedPhoneField } from "@/src/SDK/input";
 import { useRouter } from "next/router";
-
-// import useSignUpDetails from "./hooks/useSignupDetails";
+import useSignUpDetails from "./hooks/useSignUpDetails";
 
 const CustomSignup = styled(Box)(({ theme }) => ({
   display: "flex",
