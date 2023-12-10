@@ -8,7 +8,7 @@ import { MemoizedButton } from "@/src/SDK";
 import { checkError } from "@/src/SDK/utils";
 import { MemoizedPhoneField } from "@/src/SDK/input";
 import { useRouter } from "next/router";
-import useSignUpDetails from "./hooks/useSignUpDetails";
+import useSignUpDetails from "./hooks/useSignupDetails";
 
 const CustomSignup = styled(Box)(({ theme }) => ({
   display: "flex",
