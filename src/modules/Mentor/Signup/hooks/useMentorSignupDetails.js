@@ -56,9 +56,9 @@ const useMentorSignupDetails = () => {
       mentorSignup(values)
         .then((res) => {
           setLoading(false);
-          localStorage.setItem("mentorId", res?.data?.guide?.id);
-          localStorage.setItem("token", res?.data?.token);
-          localStorage.setItem("userRole", res?.data?.guide?.role);
+          localStorage?.setItem("mentorId", res?.data?.guide?.id);
+          localStorage?.setItem("token", res?.data?.token);
+          localStorage?.setItem("userRole", res?.data?.guide?.role);
 
           showSnackbar("Sign Up Successfully", "success");
 

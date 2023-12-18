@@ -1,10 +1,6 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import { primary } from "@/src/SDK/theme";
-import { Box } from "@mui/material";
-import { MemoizedCollegeData } from "@/src/modules/CollegeData/ContactUs";
-import { MemoizedLogin } from "@/src/modules/Student/Login";
-import { MemoizedHeader } from "@/src/modules/Layout";
+import { MemoizedEditStudent } from "@/src/modules/Student/Edit";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,13 +9,12 @@ export default function StudentEdit() {
   return (
     <>
       <Head>
-        <title>Login - Student</title>
+        <title>Edit - Student</title>
         <meta name="description" content="Lets plant trees" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/images/logo.svg" />
       </Head>
-      {/* <MemoizedHeader/> */}
-      Student Edit
+      <MemoizedEditStudent />
     </>
   );
 }

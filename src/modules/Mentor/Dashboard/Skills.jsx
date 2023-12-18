@@ -37,19 +37,30 @@ const CustomSkills = styled(Box)(({ theme }) => ({
 const Skills = ({ data }) => {
   return (
     <CustomSkills>
-      <Box className="expirence-container">
-        <MemoizedDashboardCardHeader title={"Skills"} route={"/mentor/edit"} />
-        <Grid container spacing={2}>
-          {data?.skills?.map((item) => (
-            <Grid item xs={12} sm={6} md={4} lg={4} key={item}>
-              <Typography className="skill-text-style">{item}</Typography>
+      {data?.skills ? (
+        <>
+          {" "}
+          <Box className="expirence-container">
+            <MemoizedDashboardCardHeader
+              title={"Skills"}
+              route={"/mentor/edit"}
+            />
+            <Grid container spacing={2}>
+              {data?.skills?.map((item) => (
+                <Grid item xs={12} sm={6} md={4} lg={4} key={item}>
+                  <Typography className="skill-text-style">{item}</Typography>
+                </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
-      </Box>
-      <Divider
-        sx={{ marginTop: "2em", borderTop: `2px solid ${primary?.lightGrey}` }}
-      />
+          </Box>
+          <Divider
+            sx={{
+              marginTop: "2em",
+              borderTop: `2px solid ${primary?.lightGrey}`,
+            }}
+          />
+        </>
+      ) : null}
     </CustomSkills>
   );
 };

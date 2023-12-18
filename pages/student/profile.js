@@ -1,10 +1,5 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import { primary } from "@/src/SDK/theme";
-import { Box } from "@mui/material";
-import { MemoizedCollegeData } from "@/src/modules/CollegeData/ContactUs";
-import { MemoizedLogin } from "@/src/modules/Student/Login";
-import { MemoizedHeader } from "@/src/modules/Layout";
 import { MemoizedStudentProfile } from "@/src/modules/Student/profile";
 
 const inter = Inter({ subsets: ["latin"] });

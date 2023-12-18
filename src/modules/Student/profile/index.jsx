@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MemoizedStudentHeader } from "../../Layout";
 import {
   Avatar,
@@ -17,27 +17,28 @@ import AttachFileIcon from "@mui/icons-material/AttachFile";
 import LinkSharpIcon from "@mui/icons-material/LinkSharp";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import { useRouter } from "next/router";
+import { getStudentsDetails } from "@/src/apiService/studentService";
 
-const data = {
-  name: "Akash Kushwaha",
-  profile_pic:
-    "https://colleges-to-jobs.s3.ap-south-1.amazonaws.com/akash-avatar.webp",
-  bio: `Hello, I'm Akash Kushwaha, a passionate software engineer experienced in developing Minimum Viable Products (MVPs).
-    As I continue to grow in my career, I am eager to take on new challenges and expand my skill set. I'm open to exciting opportunities to contribute my expertise and learn from experienced professionals.`,
-  email: "kushwahaakash971@gmail.com",
-  phone_number: "+91 9794620535",
-  domains: [
-    "Fullstack Developer",
-    "Backend Developer",
-    "DevOps / SRE / Cloud Engineer",
-    "Data Engineer / Big Data",
-  ],
-  linkedinUrl: "https://www.linkedin.com/in/akash-kushwaha-250949224/",
-  college: "U.I.E.T, CSJM University, Kanpur",
-  year_of_graduation: "2023",
-  resume:
-    "https://colleges-to-jobs.s3.ap-south-1.amazonaws.com/students-resume/Akash's+Resume.pdf",
-};
+// const studData = {
+//   name: "Akash Kushwaha",
+//   profile_pic:
+//     "https://colleges-to-jobs.s3.ap-south-1.amazonaws.com/akash-avatar.webp",
+//   bio: `Hello, I'm Akash Kushwaha, a passionate software engineer experienced in developing Minimum Viable Products (MVPs).
+//     As I continue to grow in my career, I am eager to take on new challenges and expand my skill set. I'm open to exciting opportunities to contribute my expertise and learn from experienced professionals.`,
+//   email: "kushwahaakash971@gmail.com",
+//   phone_number: "+91 9794620535",
+//   domains: [
+//     "Fullstack Developer",
+//     "Backend Developer",
+//     "DevOps / SRE / Cloud Engineer",
+//     "Data Engineer / Big Data",
+//   ],
+//   linkedinUrl: "https://www.linkedin.com/in/akash-kushwaha-250949224/",
+//   college: "U.I.E.T, CSJM University, Kanpur",
+//   year_of_graduation: "2023",
+//   resume:
+//     "https://colleges-to-jobs.s3.ap-south-1.amazonaws.com/students-resume/Akash's+Resume.pdf",
+// };
 
 const CustomStudentProfile = styled(Box)(({ theme }) => ({
   ".student-info-container": {
@@ -96,7 +97,6 @@ const CustomStudentProfile = styled(Box)(({ theme }) => ({
     color: primary?.greyText,
   },
   ".resume-linkedin-container": {
-    marginTop: "4px",
     padding: "8px",
     borderRadius: "12px",
     marginTop: 10,
@@ -137,15 +137,6 @@ const CustomStudentProfile = styled(Box)(({ theme }) => ({
       marginTop: "10px",
     },
     ".description-label": {
-      fontSize: "1em",
-    },
-    ".description-value": {
-      fontSize: "0.8em",
-    },
-    ".description-label": {
-      fontSize: "1em",
-    },
-    ".description-value": {
       fontSize: "0.8em",
     },
     ".resume-linkedin-container": {
@@ -157,21 +148,42 @@ const CustomStudentProfile = styled(Box)(({ theme }) => ({
 }));
 
 const StudentProfile = () => {
+  const [studentData, setStudentData] = useState();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const studentId = localStorage.getItem("studentId");
+
+    if (studentId) {
+      getStudentsDetails(studentId)
+        .then((res) => {
+          setStudentData(res?.data?.student);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
+  }, []);
+
   const navigate = useRouter();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <MemoizedStudentHeader>
       <CustomStudentProfile>
         <Box className="student-info-container">
           <Box className="profile-container">
             <Avatar
-              alt={data?.name}
-              src={data?.profile_pic}
+              alt={studentData?.name}
+              src={studentData?.profile_pic}
               className="avatar"
             />
 
             <Box className="named-container">
               <Typography variant="h6" className="name">
-                {data?.name}
+                {studentData?.name}
               </Typography>
               <Box className="phone-email-container">
                 <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -180,7 +192,7 @@ const StudentProfile = () => {
                     variant="subtitle2"
                     className="student-phone-email"
                   >
-                    {data?.phone_number}
+                    {studentData?.phone_number}
                   </Typography>
                 </Box>
                 <Divider
@@ -197,7 +209,7 @@ const StudentProfile = () => {
                     variant="subtitle2"
                     className="student-phone-email"
                   >
-                    {data?.email}
+                    {studentData?.email}
                   </Typography>
                 </Box>
               </Box>
@@ -213,9 +225,10 @@ const StudentProfile = () => {
             <Box
               sx={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}
             >
-              {data?.domains.map((domain) => {
+              {studentData?.domains.map((domain) => {
                 return (
                   <Typography
+                    key={domain}
                     variant="subtitle2"
                     className="student-phone-email"
                     sx={{ paddingRight: 1 }}
@@ -227,12 +240,12 @@ const StudentProfile = () => {
             </Box>
           </Box>
         </Box>
-        {data?.bio && (
+        {studentData?.bio && (
           <Box className="student-info-container">
             <MemoizedDashboardCardHeader title={"About"} />
             <Box className="other-detail-container">
               <Typography variant="h6" className="description-value">
-                {data?.bio}
+                {studentData?.bio}
               </Typography>
             </Box>
           </Box>
@@ -246,12 +259,12 @@ const StudentProfile = () => {
           >
             <Box className="resume-linkedin-container" sx={{ marginRight: 2 }}>
               <MemoizedDashboardCardHeader title={"Resume"} />
-              {data?.resume ? (
+              {studentData?.resume ? (
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   {" "}
                   <AttachFileIcon sx={{ color: "#9333EA" }} />{" "}
                   <a
-                    href={data?.resume}
+                    href={studentData?.resume}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="link"
@@ -279,16 +292,16 @@ const StudentProfile = () => {
             </Box>
             <Box className="resume-linkedin-container">
               <MemoizedDashboardCardHeader title={"LinkedIn"} />
-              {data?.linkedinUrl ? (
+              {studentData?.linkedinUrl ? (
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <LinkSharpIcon sx={{ color: "#9333EA" }} />{" "}
                   <a
-                    href={data?.linkedinUrl}
+                    href={studentData?.linkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="link"
                   >
-                    {data?.linkedinUrl}
+                    {studentData?.linkedinUrl}
                   </a>
                 </Box>
               ) : (

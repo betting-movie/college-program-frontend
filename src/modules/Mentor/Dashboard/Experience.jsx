@@ -30,21 +30,29 @@ const CustomExpirence = styled(Box)(({ theme }) => ({
 const Experience = ({ data }) => {
   return (
     <CustomExpirence>
-      <Box className="expirence-container">
-        <MemoizedDashboardCardHeader
-          title={"Experience"}
-          route={"/mentor/edit"}
-        />
-        <Typography className="comapny-heading">Current Company</Typography>
-        <MemoizedCustomeBox value={data?.current_company} />
-        <Typography className="comapny-heading">Past Experinece</Typography>
-        {data?.experience?.map((item) => (
-          <MemoizedCustomeBox value={item} />
-        ))}
-      </Box>
-      <Divider
-        sx={{ marginTop: "2em", borderTop: `2px solid ${primary?.lightGrey}` }}
-      />
+      {data?.current_company ? (
+        <>
+          {" "}
+          <Box className="expirence-container">
+            <MemoizedDashboardCardHeader
+              title={"Experience"}
+              route={"/mentor/edit"}
+            />
+            <Typography className="comapny-heading">Current Company</Typography>
+            <MemoizedCustomeBox value={data?.current_company} />
+            <Typography className="comapny-heading">Past Experinece</Typography>
+            {data?.experience?.map((item) => (
+              <MemoizedCustomeBox value={item} />
+            ))}
+          </Box>
+          <Divider
+            sx={{
+              marginTop: "2em",
+              borderTop: `2px solid ${primary?.lightGrey}`,
+            }}
+          />
+        </>
+      ) : null}
     </CustomExpirence>
   );
 };

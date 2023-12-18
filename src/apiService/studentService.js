@@ -5,7 +5,8 @@ export const headers = {
 };
 
 const setAuthToken = () => {
-  const authToken = localStorage.getItem("token");
+  let authToken =
+    typeof localStorage !== "undefined" ? localStorage?.getItem("token") : "";
   const newHeaders = { ...headers };
 
   if (authToken) {
@@ -42,4 +43,17 @@ export const studentLogin = (payload) => {
   };
 
   return axios.post("/api/v1/student/login", mentorDetails);
+};
+
+export const studentEdit = (payload) => {
+  const studentId = localStorage.getItem("studentId");
+  return axios.put(`api/v1/student/update/${studentId}`, payload);
+};
+
+export const getStudentsDetails = (studentId) => {
+  return axios.get(`api/v1/student/get-student/${studentId}`);
+};
+
+export const getAllStudents = () => {
+  return axios.get(`api/v1/student/get-all-student`);
 };

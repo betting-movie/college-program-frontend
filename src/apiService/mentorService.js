@@ -5,7 +5,13 @@ export const headers = {
 };
 
 const setAuthToken = () => {
-  const authToken = localStorage.getItem("token");
+  // const authToken = localStorage.getItem("token");
+  // let authToken;
+  // if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
+  //   authToken = localStorage?.getItem("token");
+  // }
+  let authToken =
+    typeof localStorage !== "undefined" ? localStorage?.getItem("token") : "";
   const newHeaders = { ...headers };
 
   if (authToken) {

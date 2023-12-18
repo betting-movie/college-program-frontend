@@ -13,10 +13,10 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { primary } from "@/src/SDK/theme";
-import {  ListItemIcon } from "@mui/material";
+import { ListItemIcon } from "@mui/material";
 import { useRouter } from "next/router";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
+import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import AdsClickOutlinedIcon from "@mui/icons-material/AdsClickOutlined";
 import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
@@ -24,11 +24,14 @@ import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 import { MemoizedMentorInspiredList } from "../../Mentor/MentorInspiredList/MentorInspiredList";
 import { mentorLogout } from "@/src/apiService/mentorService";
 
-
 const drawerWidth = 240;
 const navItems = [
   { name: "Home", path: "/student/dashboard", icon: <HomeOutlinedIcon /> },
-  { name: "My Profile", path: "/student/profile", icon: <PermIdentityOutlinedIcon /> },
+  {
+    name: "My Profile",
+    path: "/student/profile",
+    icon: <PermIdentityOutlinedIcon />,
+  },
   //   {
   //     name: "Trial Bookings",
   //     path: "/student/dashboard",
@@ -44,7 +47,6 @@ const navItems = [
 ];
 
 const StudentHeader = ({ children, ...props }) => {
-  console.log("Props-->", props);
   const [selectedItem, setSelectedItem] = React.useState(navItems[0]);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -179,7 +181,14 @@ const StudentHeader = ({ children, ...props }) => {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main">
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 1,
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+        }}
+      >
         <Toolbar />
         <Box>{children}</Box>
       </Box>

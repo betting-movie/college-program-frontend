@@ -393,7 +393,7 @@ const MentorHeader = ({ children, ...props }) => {
         <Toolbar />
         <Box>{children}</Box>
       </Box>
-      <Box
+      {/* <Box
         component="main"
         sx={{
           flexGrow: 2,
@@ -403,7 +403,7 @@ const MentorHeader = ({ children, ...props }) => {
         }}
       >
         <MemoizedMentorInspiredList mentorData={sampleData} />
-      </Box>
+      </Box> */}
     </Box>
   );
 };

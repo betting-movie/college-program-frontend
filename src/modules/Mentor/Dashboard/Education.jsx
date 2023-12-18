@@ -22,18 +22,25 @@ const CustomeAchivements = styled(Box)(({ theme }) => ({
 const Education = ({ data }) => {
   return (
     <CustomeAchivements>
-      <Box className="education-container">
-        <MemoizedDashboardCardHeader
-          title={"Education"}
-          route={"/mentor/edit"}
-        />
-        {data?.education?.map((item) => (
-          <MemoizedCustomeBox value={item} />
-        ))}
-      </Box>
-      <Divider
-        sx={{ marginTop: "2em", borderTop: `2px solid ${primary?.lightGrey}` }}
-      />
+      {data?.education ? (
+        <>
+          <Box className="education-container">
+            <MemoizedDashboardCardHeader
+              title={"Education"}
+              route={"/mentor/edit"}
+            />
+            {data?.education?.map((item) => (
+              <MemoizedCustomeBox value={item} />
+            ))}
+          </Box>
+          <Divider
+            sx={{
+              marginTop: "2em",
+              borderTop: `2px solid ${primary?.lightGrey}`,
+            }}
+          />
+        </>
+      ) : null}
     </CustomeAchivements>
   );
 };

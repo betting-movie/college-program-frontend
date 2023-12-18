@@ -8,15 +8,17 @@ const useSkillEdit = () => {
   const [loading, setLoading] = useState(false);
   const { showSnackbar } = useContext(Context);
   const [mentorData, setMentorData] = useState();
+  const [selectedOptions, setSelectedOptions] = useState();
 
   useEffect(() => {
     const mentorId = localStorage.getItem("mentorId");
     getMentorDetails(mentorId).then((res) => {
       console.log("res", res?.data?.guide);
       setMentorData(res?.data?.guide);
+      setSelectedOptions(res?.data?.guide?.skills);
     });
   }, []);
-  const [selectedOptions, setSelectedOptions] = useState(mentorData?.skills);
+ 
 
   const form = useFormik({
     validateOnChange: true,

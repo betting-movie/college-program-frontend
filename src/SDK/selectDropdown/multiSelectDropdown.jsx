@@ -17,7 +17,7 @@ const MultiSelectAutocomplete = ({
   onChange,
   options,
   helperText,
-
+  value,
   ...rest
 }) => {
   return (

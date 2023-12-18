@@ -10,14 +10,23 @@ import { getMentorDetails } from "@/src/apiService/mentorService";
 
 const MentorDashboard = () => {
   const [mentorData, setMentorData] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const mentorId = localStorage.getItem("mentorId");
-    getMentorDetails(mentorId).then((res) => {
-      console.log("res", res?.data?.guide);
-      setMentorData(res?.data?.guide);
-    });
+    if (mentorId) {
+      getMentorDetails(mentorId)
+        .then((res) => {
+          setMentorData(res?.data?.guide);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
   }, []);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <MemoizedMentorHeader>
       <MemoizedMentorAbout data={mentorData} />

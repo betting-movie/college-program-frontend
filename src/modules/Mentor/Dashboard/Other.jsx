@@ -45,39 +45,53 @@ const Other = ({ data }) => {
         <MemoizedDashboardCardHeader title={"Other"} route={"/mentor/edit"} />
         <Grid container spacing={2}>
           <Grid item xs={12} md={6} lg={4}>
-            <Box className="other-detail-container">
-              <Typography variant="h6">
-                <span className="description-label"> Consultation Cost: </span>{" "}
-                <span className="description-value">
-                  {" "}
-                  {data?.consultation_cost}
-                </span>
-              </Typography>
-            </Box>
+            {data?.consultation_cost ? (
+              <Box className="other-detail-container">
+                <Typography variant="h6">
+                  <span className="description-label">
+                    {" "}
+                    Consultation Cost:{" "}
+                  </span>{" "}
+                  <span className="description-value">
+                    {" "}
+                    {data?.consultation_cost}
+                  </span>
+                </Typography>
+              </Box>
+            ) : null}
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
-            <Box className="other-detail-container">
-              <Typography variant="h6">
-                <span className="description-label">Rating: </span>{" "}
-                <span className="description-value"> {data?.rating}</span>
-              </Typography>
-            </Box>
+            {data?.rating ? (
+              <Box className="other-detail-container">
+                <Typography variant="h6">
+                  <span className="description-label">Rating: </span>{" "}
+                  <span className="description-value"> {data?.rating}</span>
+                </Typography>
+              </Box>
+            ) : null}
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
-            <Box className="other-detail-container">
-              <Typography variant="h6">
-                <span className="description-label">Mentees: </span>{" "}
-                <span className="description-value"> {data?.mentees}</span>
-              </Typography>
-            </Box>
+            {data?.mentees ? (
+              <Box className="other-detail-container">
+                <Typography variant="h6">
+                  <span className="description-label">Mentees: </span>{" "}
+                  <span className="description-value"> {data?.mentees}</span>
+                </Typography>
+              </Box>
+            ) : null}
           </Grid>
           <Grid item xs={12} md={6} lg={6}>
-            <Box className="other-detail-container">
-              <Typography variant="h6">
-                <span className="description-label"> Availability:</span>{" "}
-                <span className="description-value"> {data?.availability}</span>
-              </Typography>
-            </Box>
+            {data?.availability ? (
+              <Box className="other-detail-container">
+                <Typography variant="h6">
+                  <span className="description-label"> Availability:</span>{" "}
+                  <span className="description-value">
+                    {" "}
+                    {data?.availability}
+                  </span>
+                </Typography>
+              </Box>
+            ) : null}
           </Grid>
         </Grid>
       </Box>
